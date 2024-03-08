@@ -1,8 +1,8 @@
-//Dina Makhdoom, Kyle Wager, Rhys Hunt Section 3 
+// Dina Makhdoom, Kyle Wager, Rhys Hunt Section 3 
 
 #include <stdio.h>
 
-int main(void) {
+int main(int argc, char* argv[]) {
 
 	printf("Hello, World!");
 
