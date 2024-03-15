@@ -6,7 +6,7 @@ typedef struct player {
 	//int critChance;
 	int healthPots;
 	char* playerName; 
-}Player;
+}PLAYER;
 
 void setName(char* name);
 
