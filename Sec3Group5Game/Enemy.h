@@ -1,6 +1,6 @@
 #pragma once
-#include <stdlib.h>
 #include "Player.h"
+#include "constants.h"
 typedef struct enemy {
 	int health;
 	int damage;
@@ -12,13 +12,13 @@ typedef struct enemyList {
 	ENEMY enemies[5];
 }ENEMYLIST;
 
-void enemyTakeDmg(int dmg);
+int enemyTakeDmg(int dmg, ENEMY *enemy);
 
 ENEMY* readEnemyFromFile(char* fileName);
 
-ENEMY* s(char* fileName);
+ENEMY makeEnemy(int health, int damage, char* enemyName);
 
-
+ENEMYLIST* makeEnemyList(int maxEnemies);
 
 
 
