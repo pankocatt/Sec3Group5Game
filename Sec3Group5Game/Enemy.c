@@ -24,7 +24,7 @@ ENEMY makeEnemy(int health, int damage, char* enemyName)
 	ENEMY enemy;
 	enemy.health = health;
 	enemy.damage = damage;
-	enemy.enemyName = strncpy(enemy.enemyName, enemyName, 100);
+	strncpy(enemy.enemyName, enemyName, 100);
 
 	return enemy;
 }

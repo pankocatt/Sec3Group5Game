@@ -8,12 +8,12 @@ typedef struct player {
 	char* playerName; 
 }PLAYER;
 
-void setName(char* name);
+void setName(char* name, PLAYER* player);
 
-void equipWeapon(int dmg);
+void equipWeapon(int dmg, PLAYER* player);
 
-void equipArmor(int dfc);
+void equipArmor(int dfc, PLAYER* player);
 
-void addHealthPot(int healthPot);
+void addHealthPot(int healthPot, PLAYER* player);
 
-void playerTakeDmg(int dmg);
+int playerTakeDmg(int dmg, PLAYER* player);
