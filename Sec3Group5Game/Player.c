@@ -29,3 +29,19 @@ int playerTakeDmg(int dmg, PLAYER* player)
 	else
 		return 1;
 }
+
+void increaseCrit(int crit, PLAYER* player)
+{
+	player->critChance += crit;
+}
+
+int playerDealDmg(PLAYER* player)
+{
+	int critHit = rand() % (100 - 1 + 1) + 1;
+	if (critHit <= critHit) {
+		return (player->damage * 2);
+	}
+	else {
+		return player->damage;
+	}
+}

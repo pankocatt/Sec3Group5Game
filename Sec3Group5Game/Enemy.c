@@ -9,6 +9,11 @@ int enemyTakeDmg(int dmg, ENEMY *enemy)
         return 1;
 }
 
+int enemyDealDmg(int dmg, ENEMY* enemy)
+{
+	return enemy->damage;
+}
+
 ENEMYLIST* makeEnemyList(int maxEnemies)
 {
 	ENEMYLIST* enemies = (ENEMYLIST*)malloc(maxEnemies * sizeof(ENEMY));

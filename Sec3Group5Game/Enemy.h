@@ -20,6 +20,8 @@ ENEMY makeEnemy(int health, int damage, char* enemyName);
 
 ENEMYLIST* makeEnemyList(int maxEnemies);
 
+int enemyDealDmg(int dmg, ENEMY* enemy);
+
 
 
 
