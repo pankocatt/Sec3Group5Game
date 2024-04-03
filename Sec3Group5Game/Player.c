@@ -38,7 +38,7 @@ void increaseCrit(int crit, PLAYER* player)
 int playerDealDmg(PLAYER* player)
 {
 	int critHit = rand() % (100 - 1 + 1) + 1;
-	if (critHit <= critHit) {
+	if (critHit <= player->critChance) {
 		return (player->damage * 2);
 	}
 	else {
