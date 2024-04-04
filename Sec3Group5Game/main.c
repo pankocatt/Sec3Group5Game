@@ -11,8 +11,12 @@ int main(int argc, char* argv[]) {
         printf("Exiting due to no map...\n");
         return 1;
     }
-    PLAYER* player = { 0 };
-    LOOTPOOL* lootpool = { 0 };
+    PLAYER* player = malloc(sizeof(PLAYER));
+    if (player == NULL) {
+        if (map != NULL) free(map);
+        return 1;
+    }
+    LOOTPOOL* lootpool = setUpLootPool(argv);
 
     int userInput;
     // Main program loop
@@ -26,16 +30,25 @@ int main(int argc, char* argv[]) {
 
         while (userInput != EXITCODE) {
             // Enters next area
-            if (enterArea(player, lootpool, map->currentMap) == EXITCODE)
-                break;
+            enterArea(player, lootpool, map->currentMap);
+            ENEMYLIST* enemies = readEnemyFromFile(argv[map->currentMap]);
 
-            // Chooses encounter
+            // This is the loop for getting new items and 
+            while (userInput != EXITCODE) {
+                // Lets player select a path for a chance at a new item
+                userInput = choosePath(player, lootpool);
+                if (userInput == EXITCODE)
+                    break;
+
+                // The fight menu for an encounter
+                userInput = fightMenu(player, enemies);
+            }
+            if (enemies != NULL) free(enemies);
         }
-
-
     } while (userInput != EXITCODE);
 
-    destroyMap(map);
+    if (player != NULL) free(player);
+    destroyMap();
 
     return 0;
 }

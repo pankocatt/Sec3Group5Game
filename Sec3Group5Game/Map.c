@@ -100,12 +100,16 @@ int enterArea(PLAYER* player, LOOTPOOL* lootpool, short areaNum) {
 }
 
 // Choose left or right path, adds interactivity but changes nothing at the moment
-void choosePath(PLAYER* player) {
+short choosePath(PLAYER* player, LOOTPOOL* lootpool) {
 	printf("%s comes to a fork in the path...\n", player->playerName);
 	printf("Which direction do they choose to go?\n");
 	printf("1. Left\n");
 	printf("2. Right\n");
-	int input = getIntInput(1, 2);
+	short input = getIntInput(1, 2);
+	if (input == EXITCODE)
+		return EXITCODE;
+
+	short pathWithItem = rand() % 100 + 1;
 
 	// Left path
 	if (input == 1) {
@@ -116,6 +120,102 @@ void choosePath(PLAYER* player) {
 	else {
 		printf("%s walks down the right path...\n", player->playerName);
 	}
+
+	// % chance of finding an item
+	if (pathWithItem > 50) {
+		printf("You found an item!\n");
+		ITEM item = returnItem(lootpool);
+		// Logic for printing out item information
+		switch (item.lootType) {
+		case SWORD_TYPE:
+			printf("It's a sword with %d damage.\n", item.loot.sword.dmg);
+			break;
+		case ARMOUR_TYPE:
+			printf("It's some armour with %d defense.\n", item.loot.armour.def);
+			break;
+		case HEALTHPOT_TYPE:
+			printf("It's a healthpot that heals %d hp.\n", item.loot.healthpot.health);
+			break;
+		default:
+			item.lootType = SWORD_TYPE;
+			item.loot.sword.dmg = 5 * map->currentMap;
+			printf("It's a sword with %d damage.\n", item.loot.sword.dmg);
+		}
+
+		// Accepting the item
+		printf("Do you accept the item?\n");
+		printf("1) Yes\n2) No\n");
+		input = getIntInput(1, 2);
+		
+		switch (input) {
+		// Early exit
+		case EXITCODE:
+			return EXITCODE;
+			break;
+		// Player chooses to keep item
+		case 1:
+			printf("You received the item!\n");
+			switch (item.lootType) {
+			case SWORD_TYPE:
+				equipWeapon(item.loot.sword.dmg, player);
+				break;
+			case ARMOUR_TYPE:
+				equipArmor(item.loot.armour.def, player);
+				break;
+			case HEALTHPOT_TYPE:
+				addHealthPot(item.loot.healthpot.health, player);
+				break;
+			default:
+				break;
+			}
+		// Player refuses item
+		case 2:
+			printf("You put the item down.\n");
+			break;
+		default:
+			printf("Something went wrong...\n");
+			break;
+		}
+	}
+}
+
+short fightMenu(PLAYER* player, ENEMY* enemies) {
+	printf("You've encountered an enemy!\n");
+	short enemyNumber = rand() % 5;
+	ENEMY* enemy = malloc(sizeof(ENEMY));
+	if (enemy == NULL)
+		return ERRORS;
+	*enemy = enemies[enemyNumber];
+
+	// Main loop for fighting
+	do {
+		// Print out menu options
+		printf("The %s has %d health.\n", enemy->enemyName, enemy->health);
+		printf("1) Attack\n");
+		printf("2) Defend\n");
+		printf("3) Heal\n");
+
+		short userinput = getIntInput(1, 3);
+
+		// Determines players option
+		switch (userinput) {
+		case EXITCODE:
+			if (enemy != NULL) free(enemy);
+			return EXITCODE;
+			break;
+		case 1:
+			enemyTakeDmg(player->damage, enemy);
+			break;
+		}
+	} while (enemy->health > 0 && player->health > 0);
+
+	if (player->health <= 0) {
+		printf("%s has perished to a %s...\n", player->playerName, enemy->enemyName);
+		return EXITCODE;
+	}
+
+	if (enemy != NULL) free(enemy);
+	return 1;
 }
 
 // Free Map Memory

@@ -27,12 +27,12 @@ int getIntInput(int, int);
 int enterArea(PLAYER*, LOOTPOOL*, short);
 
 // Choose left or right path, adds interactivity but changes nothing
-void choosePath(PLAYER*);
+short choosePath(PLAYER*, LOOTPOOL* lootpool);
 
 
 // Fighting options
 // Main fight menu
-void fightMenu(PLAYER*, ENEMY*);
+short fightMenu(PLAYER*, ENEMY*);
 
 // Misc.
 // Free Map Memory
