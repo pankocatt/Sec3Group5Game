@@ -71,17 +71,16 @@ int enterArea(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 		// Begin journey
 		printf("%s happens upon a jungle...\n", player->playerName);
 		Sleep(2000);
-		printf("%s stumbles upon a chest! Inside is a sword!\n", player->playerName);
 
 		// Rolls a random sword
 		ITEM item = returnItem(lootpool);
 		while (item.lootType != SWORD_TYPE) item = returnItem(lootpool);
+		printf("%s stumbles upon a chest! Inside is a %s!\n", player->playerName, item.loot.sword.name);
 		Sleep(2000);
 
-		// Shows off the sword weapon and equips it
-		printf("It has %d damage!\n", item.loot.sword.dmg);
-		equipWeapon(item.loot.sword.dmg, player);
-
+		// Shows off the weapon and equips it
+		printf("It has %d damage and %d critical hit chance!\n", item.loot.sword.dmg, item.loot.sword.crit);
+		equipWeapon(item.loot.sword, player);
 		Sleep(2000);
 
 		break;
@@ -147,7 +146,7 @@ short choosePath(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 		// Logic for printing out item information
 		switch (item.lootType) {
 		case SWORD_TYPE:
-			printf("It's a sword with %d damage!\n", item.loot.sword.dmg);
+			printf("It's a sword with %d damage and +%d critical hit chance!\n", item.loot.sword.dmg, item.loot.sword.crit);
 			break;
 		case ARMOUR_TYPE:
 			printf("It's some armour with %d defense!\n", item.loot.armour.def);
@@ -158,7 +157,8 @@ short choosePath(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 		default:
 			item.lootType = SWORD_TYPE;
 			item.loot.sword.dmg = 5 * map->currentMap;
-			printf("It's a sword with %d damage.\n", item.loot.sword.dmg);
+			item.loot.sword.crit = 10;
+			printf("It's a sword with %d damage and +%d critical hit chance.\n", item.loot.sword.dmg, item.loot.sword.crit);
 		}
 
 		// Accepting the item
@@ -177,15 +177,16 @@ short choosePath(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 			printf("You received the item!\n");
 			switch (item.lootType) {
 			case SWORD_TYPE:
-				equipWeapon(item.loot.sword.dmg, player);
+				equipWeapon(item.loot.sword, player);
 				printf("%s's damage increased by %d to %d!\n", player->playerName, item.loot.sword.dmg, player->damage);
+				printf("%s's critical hit chance increased by %d to %d!\n", player->playerName, item.loot.sword.crit, player->critChance);
 				break;
 			case ARMOUR_TYPE:
-				equipArmor(item.loot.armour.def, player);
+				equipArmor(item.loot.armour, player);
 				printf("%s's armour increased by %d to %d!\n", player->playerName, item.loot.armour.def, player->defence);
 				break;
 			case HEALTHPOT_TYPE:
-				addHealthPot(1, player);
+				addHealthPot(player);
 				printf("%s gained a health potion!\n", player->playerName);
 				break;
 			default:

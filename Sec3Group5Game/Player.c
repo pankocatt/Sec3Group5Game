@@ -11,7 +11,7 @@ PLAYER* initPlayer() {
 		free(player);
 		return NULL;
 	}
-	player->critChance = 10;
+	player->critChance = 0;
 	player->damage = 0;
 	player->defence = 2;
 	player->health = 15;
@@ -25,19 +25,20 @@ void setName(char* name, PLAYER* player)
 	strncpy(player->playerName, name, NAMELENGTH);
 }
 
-void equipWeapon(int dmg, PLAYER* player)
+void equipWeapon(SWORD sword, PLAYER* player)
 {
-	player->damage += dmg;
+	player->damage += sword.dmg;
+	player->critChance += sword.crit;
 }
 
-void equipArmor(int dfc, PLAYER* player)
+void equipArmor(ARMOUR armour, PLAYER* player)
 {
-	player->defence += dfc;
+	player->defence += armour.def;
 }
 
-void addHealthPot(int healthPot, PLAYER* player)
+void addHealthPot(PLAYER* player)
 {
-	player->healthPots += healthPot;
+	player->healthPots++;
 }
 
 int useHealthPot(PLAYER* player)
@@ -64,11 +65,6 @@ int playerTakeDmg(int dmg, PLAYER* player)
 		return -1;
 	else
 		return 1;
-}
-
-void increaseCrit(int crit, PLAYER* player)
-{
-	player->critChance += crit;
 }
 
 int playerDealDmg(PLAYER* player)

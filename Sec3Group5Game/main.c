@@ -25,7 +25,6 @@ int main(int argc, char* argv[]) {
         if (map != NULL) free(map);
         return 1;
     }
-    
 
     int userInput;
     // Main program loop
