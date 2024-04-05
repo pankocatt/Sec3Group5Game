@@ -158,14 +158,18 @@ short choosePath(PLAYER* player, LOOTPOOL* lootpool) {
 			switch (item.lootType) {
 			case SWORD_TYPE:
 				equipWeapon(item.loot.sword.dmg, player);
+				printf("%s's damage increased by %d to %d!\n", player->playerName, item.loot.sword.dmg, player->damage);
 				break;
 			case ARMOUR_TYPE:
 				equipArmor(item.loot.armour.def, player);
+				printf("%s's armour increased by %d to %d!\n", player->playerName, item.loot.armour.def, player->defence);
 				break;
 			case HEALTHPOT_TYPE:
 				addHealthPot(item.loot.healthpot.health, player);
+				printf("%s gained a health potion!\n", player->playerName);
 				break;
 			default:
+				printf("The item randomly burst into a billion pieces?!\n");
 				break;
 			}
 		// Player refuses item
@@ -188,46 +192,74 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 
 	// Main loop for fighting
 	short enemyOption = 0;
+	short userinput;
 	do {
-		// Print out menu options
-		printf("The %s has %d health.\n", enemy->enemyName, enemy->health);
-		printf("1) Attack\n");
-		printf("2) Defend\n");
-		printf("3) Heal\n");
-
-		short userinput = getIntInput(1, 3);
 
 		////////////////////////////////////////////////////////////////////////////////////
 		// Determines players option
-		switch (userinput) {
-		case EXITCODE:
-			if (enemy != NULL) free(enemy);
-			return EXITCODE;
-			break;
-		case 1: { // Brackets for making MSVC stop complaining
-			// Checks if the enemy is defending
-			short keepOdd = player->damage % 2;
-			if (enemyOption == 2)
-				player->damage >> 1;
+		short userSuccess;
+		do {
+			// Print out menu options
+			printf("The %s has %d health.\n", enemy->enemyName, enemy->health);
+			printf("1) Attack\n");
+			printf("2) Defend\n");
+			printf("3) Heal\n");
+			printf("4) Player stats\n");
 
-			// Attack the enemt
-			printf("You attack for %d damage\n", player->damage);
-			enemyTakeDmg(playerDealDmg(player), enemy);
+			userinput = getIntInput(1, 4);
 
-			// Reset player damage
-			if (enemyOption == 2) {
-				player->damage << 1;
-				player->damage += keepOdd;
+			userSuccess = 0;
+			switch (userinput) {
+				// User wants to leave
+			case EXITCODE:
+				if (enemy != NULL) free(enemy);
+				return EXITCODE;
+				break;
+
+				// Attacking
+			case 1: { // Brackets for making MSVC stop complaining
+				// Checks if the enemy is defending
+				short keepOdd = player->damage % 2;
+				if (enemyOption == 2)
+					player->damage >> 1;
+
+				// Attack the enemt
+				printf("You attack for %d damage\n", player->damage);
+				enemyTakeDmg(playerDealDmg(player), enemy);
+
+				// Reset player damage
+				if (enemyOption == 2) {
+					player->damage << 1;
+					player->damage += keepOdd;
+				}
+				break;
 			}
-			break;
-		}
 
-		case 2:
-		default:
-			userinput = 2;
-			player->defence << 1;
-			break;
-		}
+				  // Using health potion
+			case 3:
+				if (useHealthPot(player) == 1)
+					printf("%s recovered %d health and now has %d health!\n", player->playerName, HEALTHPOT, player->health);
+				else {
+					printf("%s has no health pots to use...\n", player->playerName);
+					userSuccess = -1;
+				}
+				break;
+
+				// Player stats
+			case 4:
+				printf("%s has %d health, %d damage, %d critical hit chance, %d defence, and %d health potions remaining.\n", 
+				player->playerName, player->health, player->damage, player->critChance, player->defence, player->healthPots);
+
+				userSuccess = -1;
+
+				// User defends, also default case
+			case 2:
+			default:
+				userinput = 2;
+				player->defence << 1;
+				break;
+			}
+		} while (userSuccess != -1);
 
 		////////////////////////////////////////////////////////////////////////////////////
 		// Determines enemies option
@@ -262,6 +294,7 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 
 	} while (enemy->health > 0 && player->health > 0);
 
+	// If the player dies, print exit message
 	if (player->health <= 0) {
 		printf("%s has perished to a %s...\n", player->playerName, enemy->enemyName);
 		Sleep(2000);

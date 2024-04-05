@@ -8,6 +8,8 @@ typedef struct player {
 	char* playerName; 
 }PLAYER;
 
+void initPlayer(PLAYER*);
+
 void setName(char* name, PLAYER* player);
 
 void equipWeapon(int dmg, PLAYER* player);
@@ -15,6 +17,8 @@ void equipWeapon(int dmg, PLAYER* player);
 void equipArmor(int dfc, PLAYER* player);
 
 void addHealthPot(int healthPot, PLAYER* player);
+
+int useHealthPot(PLAYER* player);
 
 int playerTakeDmg(int dmg, PLAYER* player);
 

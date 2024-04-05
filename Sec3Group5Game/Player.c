@@ -1,6 +1,14 @@
 #include "Player.h"
 #include "constants.h"
 
+void initPlayer(PLAYER* player) {
+	player->critChance = 10;
+	player->damage = 5;
+	player->defence = 5;
+	player->health = 15;
+	player->healthPots = 3;
+}
+
 void setName(char* name, PLAYER* player)
 {
 	strncpy(player->playerName, name, 100);
@@ -19,6 +27,15 @@ void equipArmor(int dfc, PLAYER* player)
 void addHealthPot(int healthPot, PLAYER* player)
 {
 	player->healthPots += healthPot;
+}
+
+int useHealthPot(PLAYER* player)
+{
+	if (player->healthPots > 0) {
+		player->health += HEALTHPOT;
+		return 1;
+	}
+	return -1;
 }
 
 int playerTakeDmg(int dmg, PLAYER* player)
