@@ -94,17 +94,17 @@ LOOTPOOL* readLootPoolFromFile(char* fileName) {
 	LOOTPOOL* lootpool = initLootPool(MAXLOOT);
 	//read from each file item
 	for (int i = 0; i < MAXLOOT; i++) {
-		//get information from file to populate seats
-		char buf[100];
-		char enemyName[100];
-		fgets(buf, 100, fp);
+		////get information from file to populate seats
+		//char buf[100];
+		//char enemyName[100];
+		//fgets(buf, 100, fp);
 
-		strncpy(enemyName, buf, 100);
+		//strncpy(enemyName, buf, 100);
 
 
-		if ( strcmp())
+		//if ( strcmp())
 
-		//lootpool->pool[i] = 
+		////lootpool->pool[i] = TO FIX
 	}
 
 	fclose(fp);
@@ -116,7 +116,7 @@ ITEM returnItem(LOOTPOOL* lp) {
 
 	srand(time(NULL));
 
-	int size = (sizeof((*lp)) / sizeof((lp[0])));
+	int size = (sizeof((*lp)) / MAXLOOT);
 	int randomElement = rand() % size + 1;
 	// Returns a random element from the lootpool
 	return(*(lp->pool[randomElement]));
