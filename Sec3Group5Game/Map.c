@@ -165,7 +165,7 @@ short choosePath(PLAYER* player, LOOTPOOL* lootpool) {
 				printf("%s's armour increased by %d to %d!\n", player->playerName, item.loot.armour.def, player->defence);
 				break;
 			case HEALTHPOT_TYPE:
-				addHealthPot(item.loot.healthpot.health, player);
+				addHealthPot(item.loot., player);
 				printf("%s gained a health potion!\n", player->playerName);
 				break;
 			default:
