@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="DungeonLoot.txt" />
-    <Text Include="CastleLoot.txt" />
-    <Text Include="FieldsLoot.txt" />
+    <Text Include="LavaCaveLoot.txt" />
+    <Text Include="JungleLoot.txt" />
   </ItemGroup>
 </Project>

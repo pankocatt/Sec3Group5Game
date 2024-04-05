@@ -142,9 +142,9 @@
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="CastleLoot.txt" />
+    <Text Include="LavaCaveLoot.txt" />
     <Text Include="DungeonLoot.txt" />
-    <Text Include="FieldsLoot.txt" />
+    <Text Include="JungleLoot.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

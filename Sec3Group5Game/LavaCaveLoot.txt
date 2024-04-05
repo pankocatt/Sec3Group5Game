@@ -1,0 +1,34 @@
+SWORD_TYPE
+25
+30
+Scythe
+SWORD_TYPE
+30
+20
+Ball & Chain
+ARMOUR_TYPE
+20
+Metal Armour
+ARMOUR_TYPE
+30
+Demon Pelt
+HEALTHPOT_TYPE
+30
+Potion
+SWORD_TYPE
+40
+15
+Greatsword
+SWORD_TYPE
+34
+25
+Sharpened Scythe
+ARMOUR_TYPE
+40
+Pelt Infused Armour
+ARMOUR_TYPE
+27
+Titanium Armour
+HEALTHPOT_TYPE
+20
+Potion
