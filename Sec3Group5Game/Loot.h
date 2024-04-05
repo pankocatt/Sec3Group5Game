@@ -2,10 +2,10 @@
 #include "constants.h"
 
 //each attribute of the structs will add to player statistic
-typedef struct weapon {
+typedef struct sword {
 	int dmg;
 	int crit;
-} WEAPON;
+} SWORD;
 
 typedef struct armour {
 	int def;
@@ -15,10 +15,10 @@ typedef struct healthPot {
 	int health;
 } HEALTHPOT;
 
-typedef enum type { NONE = 0, WEAPON_TYPE, ARMOUR_TYPE, HEALTHPOT_TYPE } TYPE;
+typedef enum type { NONE = 0, SWORD_TYPE, ARMOUR_TYPE, HEALTHPOT_TYPE } TYPE;
 
 typedef union loot {
-	WEAPON weapon;
+	SWORD sword;
 	ARMOUR armour;
 	HEALTHPOT healthpot;
 } LOOT;
@@ -32,7 +32,7 @@ typedef struct lootPool {
 	ITEM* pool[10];
 } LOOTPOOL;
 
-ITEM CreateItemFromWeapon(WEAPON w);
+ITEM CreateItemFromSword(SWORD s);
 ITEM CreateItemFromArmour(ARMOUR a);
 ITEM CreateItemFromHealthPot(HEALTHPOT p);
 
