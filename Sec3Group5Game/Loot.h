@@ -32,6 +32,15 @@ typedef struct lootPool {
 	ITEM* pool[10];
 } LOOTPOOL;
 
+SWORD CreateSword(int dmg, int crit);
+bool CopySword(SWORD* dest, SWORD src);
+
+ARMOUR CreateArmour(int def);
+bool CopyArmour(ARMOUR* dest, ARMOUR src);
+
+HEALTHPOT CreateHealthPot(int health);
+bool CopyHealthPot(HEALTHPOT* dest, HEALTHPOT src);
+
 ITEM CreateItemFromSword(SWORD s);
 ITEM CreateItemFromArmour(ARMOUR a);
 ITEM CreateItemFromHealthPot(HEALTHPOT p);

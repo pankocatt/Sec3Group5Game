@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
         while (userInput != EXITCODE) {
             // Enters next area
             ENEMYLIST* enemies = readEnemyFromFile(argv[map->currentMap]);
-            LOOTPOOL* lootpool = setUpLootPool(argv[map->currentMap + 3]);
+            LOOTPOOL* lootpool = readLootPoolFromFile(argv[map->currentMap + 3]);
 
             // Enters new area
             if (enterArea(map, player, lootpool) == -1)
