@@ -6,6 +6,12 @@
 #include "constants.h"
 
 int main(int argc, char* argv[]) {
+    // Check that there are enough command line arguments
+    if (argc < 6) {
+        perror("Not enough arguments...\n");
+        return 1;
+    }
+
     MAP* map = initMap();
     // Initialize the map
     if (map == NULL) {

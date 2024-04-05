@@ -141,6 +141,11 @@
     <ClInclude Include="Map.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="LavaCaveLoot.txt" />
+    <Text Include="DungeonLoot.txt" />
+    <Text Include="JungleLoot.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

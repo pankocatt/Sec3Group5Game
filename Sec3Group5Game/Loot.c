@@ -13,8 +13,8 @@ bool CopySword(SWORD* dest, SWORD src) {
 		return false;
 	}
 
-	src.crit = dest->crit;
-	src.dmg = dest->dmg;
+	dest->dmg = src.dmg;
+	dest->crit = src.crit;
 
 	return true;
 }
@@ -30,7 +30,7 @@ bool CopyArmour(ARMOUR* dest, ARMOUR src) {
 		return false;
 	}
 
-	src.def = dest->def;
+	dest->def = src.def;
 
 	return true;
 }
@@ -46,7 +46,7 @@ bool CopyHealthPot(HEALTHPOT* dest, HEALTHPOT src) {
 		return false;
 	}
 
-	src.health = dest->health;
+	dest->health = src.health;
 
 	return true;
 }
@@ -74,8 +74,58 @@ ITEM CreateItemFromHealthPot(HEALTHPOT p) {
 
 }
 
-LOOTPOOL* readLootPoolFromFile(char* argv) {
-	//TODO
+LOOTPOOL* initLootPool(int maxLoot)
+{
+	LOOTPOOL* lootpool = (LOOTPOOL*)malloc(maxLoot * sizeof(ITEM));
+	if (lootpool == NULL) {
+		printf("Could not allocate space for lootpool...\n");
+		exit(1);
+	}
+	return lootpool;
+}
+
+LOOTPOOL* readLootPoolFromFile(char* fileName) {
+	FILE* fp = fopen(fileName, "r");
+	if (fp == NULL) {
+		fprintf(stderr, "Could not open LOOTPOOL file...\n");
+		exit(EXIT_FAILURE);
+	}
+
+	LOOTPOOL* lootpool = initLootPool(TOTALENEMIES);
+	//read from each file item
+	for (int i = 0; i < TOTALENEMIES; i++) {
+		//get information from file to populate seats
+		char buf[100];
+		char enemyName[100];
+		fgets(buf, 100, fp);
+
+		if (0 > buf[0] || buf[0] > 128)
+			strncpy(enemyName, "NA\n", 100);
+		else
+			strncpy(enemyName, buf, 100);
+
+
+		int health = 0;
+		//if scanf doesnt get 1 values, default them
+		if (fscanf(fp, "%d", &health) != 1) {
+			health = 0;
+		}
+
+		int damage = 0;
+		//if scanf doesnt get 1 values, default them
+		if (fscanf(fp, "%d", &damage) != 1) {
+			damage = 0;
+		}
+
+		//get rid of the pesky newline
+		fgets(buf, 100, fp);
+
+		enemies->enemies[i] = makeEnemy(health, damage, enemyName);
+	}
+
+	fclose(fp);
+
+	return enemies;
 }
 
 ITEM returnItem(LOOTPOOL* lp) {
