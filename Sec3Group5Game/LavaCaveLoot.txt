@@ -1,6 +1,6 @@
 SWORD_TYPE
 25
-30
+50
 Scythe
 SWORD_TYPE
 30

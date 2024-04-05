@@ -91,41 +91,25 @@ LOOTPOOL* readLootPoolFromFile(char* fileName) {
 		exit(EXIT_FAILURE);
 	}
 
-	LOOTPOOL* lootpool = initLootPool(TOTALENEMIES);
+	LOOTPOOL* lootpool = initLootPool(MAXLOOT);
 	//read from each file item
-	for (int i = 0; i < TOTALENEMIES; i++) {
+	for (int i = 0; i < MAXLOOT; i++) {
 		//get information from file to populate seats
 		char buf[100];
 		char enemyName[100];
 		fgets(buf, 100, fp);
 
-		if (0 > buf[0] || buf[0] > 128)
-			strncpy(enemyName, "NA\n", 100);
-		else
-			strncpy(enemyName, buf, 100);
+		strncpy(enemyName, buf, 100);
 
 
-		int health = 0;
-		//if scanf doesnt get 1 values, default them
-		if (fscanf(fp, "%d", &health) != 1) {
-			health = 0;
-		}
+		if ( strcmp())
 
-		int damage = 0;
-		//if scanf doesnt get 1 values, default them
-		if (fscanf(fp, "%d", &damage) != 1) {
-			damage = 0;
-		}
-
-		//get rid of the pesky newline
-		fgets(buf, 100, fp);
-
-		enemies->enemies[i] = makeEnemy(health, damage, enemyName);
+		//lootpool->pool[i] = 
 	}
 
 	fclose(fp);
 
-	return enemies;
+	return lootpool;
 }
 
 ITEM returnItem(LOOTPOOL* lp) {

@@ -7,17 +7,17 @@
 typedef struct sword {
 	int dmg;
 	int crit;
-	char* name[MAXNAME];
+	char name[MAXNAME];
 } SWORD;
 
 typedef struct armour {
 	int def;
-	char* name[MAXNAME];
+	char name[MAXNAME];
 } ARMOUR;
 
 typedef struct healthPot {
 	int health;
-	char* name[MAXNAME];
+	char name[MAXNAME];
 } HEALTHPOT;
 
 typedef enum type { NONE = 0, SWORD_TYPE, ARMOUR_TYPE, HEALTHPOT_TYPE } TYPE;
@@ -31,7 +31,7 @@ typedef union loot {
 typedef struct item {
 	TYPE lootType;
 	LOOT loot;
-	char* name[MAXNAME];
+	char name[MAXNAME];
 } ITEM;
 
 typedef struct lootPool {
