@@ -1,0 +1,19 @@
+Green Slime
+10
+5
+
+Jungle bat
+15
+6
+
+spiked slime
+12
+7
+
+Hornet
+20
+6
+
+Man eater 
+25
+5

@@ -69,6 +69,7 @@ ENEMY* readEnemyFromFile(char* fileName) {
 
 		//get rid of the pesky newline
 		fgets(buf, 100, fp);
+		fgets(buf, 100, fp);
 
 		enemies->enemies[i] = makeEnemy(health, damage, enemyName);
 	}

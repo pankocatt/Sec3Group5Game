@@ -1,0 +1,19 @@
+Hell Bat
+140
+20
+
+Lava slime
+200
+30
+
+Wall of Flesh
+4000
+60
+
+Demon
+240
+37
+
+Lava Snail \o/
+5
+0
