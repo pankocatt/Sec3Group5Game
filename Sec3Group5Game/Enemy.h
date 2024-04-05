@@ -5,7 +5,7 @@ typedef struct enemy {
 	int health;
 	int damage;
 	//int critChance;
-	char* enemyName;
+	char enemyName[NAMELENGTH];
 }ENEMY;
 
 typedef struct enemyList {

@@ -26,10 +26,10 @@ ENEMYLIST* makeEnemyList(int maxEnemies)
 
 ENEMY makeEnemy(int health, int damage, char* enemyName)
 {
-	ENEMY enemy;
+	ENEMY enemy = { 0 };
 	enemy.health = health;
 	enemy.damage = damage;
-	strncpy(enemy.enemyName, enemyName, 100);
+	strncpy(enemy.enemyName, enemyName, NAMELENGTH);
 
 	return enemy;
 }
