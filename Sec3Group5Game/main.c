@@ -6,19 +6,20 @@
 #include "constants.h"
 
 int main(int argc, char* argv[]) {
+    MAP* map = initMap();
     // Initialize the map
-    if (!initMap()) {
+    if (map == NULL) {
         printf("Exiting due to no map...\n");
         return 1;
     }
 
     // Initialize all player data
-    PLAYER* player = malloc(sizeof(PLAYER));
+    PLAYER* player = initPlayer();
     if (player == NULL) {
         if (map != NULL) free(map);
         return 1;
     }
-    initPlayer(player);
+    
 
     int userInput;
     // Main program loop
@@ -34,13 +35,16 @@ int main(int argc, char* argv[]) {
             // Enters next area
             ENEMYLIST* enemies = readEnemyFromFile(argv[map->currentMap]);
             LOOTPOOL* lootpool = setUpLootPool(argv[map->currentMap + 3]);
-            enterArea(player, lootpool, map->currentMap);
+
+            // Enters new area
+            if (enterArea(map, player, lootpool, map->currentMap) == -1)
+                break;
 
             // This is the loop for getting new items and fighting
             int totalFights = 0;
-            while (userInput != EXITCODE && totalFights < 5) {
+            while (userInput != EXITCODE && totalFights < map->totalFights) {
                 // Lets player select a path for a chance at a new item
-                userInput = choosePath(player, lootpool);
+                userInput = choosePath(map, player, lootpool);
                 if (userInput == EXITCODE)
                     break;
 
@@ -51,10 +55,26 @@ int main(int argc, char* argv[]) {
             if (enemies != NULL) free(enemies);
             if (lootpool != NULL) free(lootpool);
         }
-    } while (userInput != EXITCODE);
+    } while (userInput != EXITCODE && map->currentMap != WIN);
 
-    if (player != NULL) free(player);
-    destroyMap();
+    // The win
+    if (map->currentMap == WIN) {
+        printf("%s escapes from the fiery cave...\n", player->playerName);
+        Sleep(2000);
+        printf("%s returns home.\n", player->playerName);
+        Sleep(2000);
+        printf("%s takes a well deserved rest...\n", player->playerName);
+        Sleep(2000);
+        printf("You win!\n");
+        printf("Final Stats:\n");
+        printf("%s had %d health, %d damage, %d critical hit chance, %d defence, and %d health potions remaining.\n",
+        player->playerName, player->health, player->damage, player->critChance, player->defence, player->healthPots);
+        Sleep(2000);
+        printf("Thank you for playing!\n");
+    }
+
+    if (player != NULL) { free(player->playerName); free(player); }
+    destroyMap(map);
 
     return 0;
 }

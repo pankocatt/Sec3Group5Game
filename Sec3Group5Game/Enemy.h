@@ -9,7 +9,7 @@ typedef struct enemy {
 }ENEMY;
 
 typedef struct enemyList {
-	ENEMY enemies[5];
+	ENEMY enemies[TOTALENEMIES];
 }ENEMYLIST;
 
 int enemyTakeDmg(int dmg, ENEMY *enemy);

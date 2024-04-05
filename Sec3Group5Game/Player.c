@@ -1,17 +1,28 @@
 #include "Player.h"
 #include "constants.h"
 
-void initPlayer(PLAYER* player) {
+PLAYER* initPlayer() {
+	PLAYER* player = malloc(sizeof(PLAYER));
+	if (player == NULL)
+		return NULL;
+
+	player->playerName = malloc(sizeof(char) * NAMELENGTH);
+	if (player->playerName == NULL) {
+		free(player);
+		return NULL;
+	}
 	player->critChance = 10;
-	player->damage = 5;
-	player->defence = 5;
+	player->damage = 0;
+	player->defence = 2;
 	player->health = 15;
 	player->healthPots = 3;
+
+	return player;
 }
 
 void setName(char* name, PLAYER* player)
 {
-	strncpy(player->playerName, name, 100);
+	strncpy(player->playerName, name, NAMELENGTH);
 }
 
 void equipWeapon(int dmg, PLAYER* player)
@@ -33,6 +44,7 @@ int useHealthPot(PLAYER* player)
 {
 	if (player->healthPots > 0) {
 		player->health += HEALTHPOTHEALING;
+		player->healthPots--;
 		return 1;
 	}
 	return -1;
@@ -61,9 +73,9 @@ void increaseCrit(int crit, PLAYER* player)
 
 int playerDealDmg(PLAYER* player)
 {
-	int critHit = rand() % (100 - 1 + 1) + 1;
+	int critHit = (rand() % 100) + 1;
 	if (critHit <= player->critChance) {
-		return (player->damage * 2);
+		return (player->damage << 1);
 	}
 	else {
 		return player->damage;

@@ -11,11 +11,9 @@ typedef struct map {
 	short totalFights;
 } MAP;
 
-static MAP* map;
-
 // Map related items
 // Create map
-bool initMap();
+MAP* initMap();
 
 // Enter game
 void mainMenu();
@@ -24,10 +22,10 @@ void mainMenu();
 int getIntInput(int, int);
 
 // Used when you first enter a new area
-int enterArea(PLAYER*, LOOTPOOL*, short);
+int enterArea(MAP*, PLAYER*, LOOTPOOL*, short);
 
 // Choose left or right path, adds interactivity but changes nothing
-short choosePath(PLAYER*, LOOTPOOL* lootpool);
+short choosePath(MAP*, PLAYER*, LOOTPOOL* lootpool);
 
 
 // Fighting options
@@ -36,5 +34,5 @@ short fightMenu(PLAYER*, ENEMY*);
 
 // Misc.
 // Free Map Memory
-void destroyMap();
+void destroyMap(MAP*);
 

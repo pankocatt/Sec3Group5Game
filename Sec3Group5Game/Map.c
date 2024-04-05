@@ -3,14 +3,17 @@
 #include "Map.h"
 
 // Create the map
-bool initMap() {
-	map = malloc(sizeof(MAP));
+MAP* initMap() {
+	MAP* map = malloc(sizeof(MAP));
 	if (map == NULL) {
 		perror("Couldn't create map...\n");
-		return false;
+		return NULL;
 	}
 	map->currentMap = 1;
-	return true;
+	map->previousMap = 0;
+	map->totalFights = 5;
+
+	return map;
 }
 
 // Enter game
@@ -22,7 +25,7 @@ void mainMenu() {
 	printf(" \\______  /\\____/|___|  /____  >____/|____/\\___  >  |____|_  /|____|    \\______  /		\n");
 	printf("        \\/            \\/     \\/                \\/          \\/                  \\/		\n");
 	printf("\n\n");
-	printf("1. New Game\n");
+	printf("1) New Game\n");
 	//printf("2. Load Game\n");
 	printf("Enter '%d' at any point to exit/return to main menu.\n", EXITCODE);
 }
@@ -41,7 +44,8 @@ int getIntInput(int min, int max) {
 }
 
 // Used when you first enter a new area
-int enterArea(PLAYER* player, LOOTPOOL* lootpool, short areaNum) {
+int enterArea(MAP* map, PLAYER* player, LOOTPOOL* lootpool, short areaNum) {
+	printf("\n\n\n\n\n");
 	// Early exit if map is already selected or player wants to leave
 	if (areaNum == map->previousMap || areaNum == EXITCODE)
 		return;
@@ -49,19 +53,22 @@ int enterArea(PLAYER* player, LOOTPOOL* lootpool, short areaNum) {
 	switch (areaNum) {
 	// This is the starting case, allows the player to get into the game
 	case 1:
-		printf("\n\n\n\n\nThe weary adventurer starts on their journey...\n");
+		printf("The weary adventurer starts on their journey...\n");
 		Sleep(2000);
 		printf("Their name is: ");
 		char name[NAMELENGTH];
 		fgets(name, NAMELENGTH, stdin); // Removes the newline
 		fgets(name, NAMELENGTH, stdin); // Actually gets the name
-		name[strlen(name) - 1] = '\0';
 
 		// Return if name is 0
-		if (strncmp(name, "0\0", NAMELENGTH) == 0)
+		if (strncmp(name, "0\n", NAMELENGTH) == 0)
 			return EXITCODE;
 
-		setName(player, name);
+		// Sets up the player name
+		setName(name, player);
+		player->playerName[strlen(player->playerName) - 1] = '\0';
+
+		// Begin journey
 		printf("%s happens upon a jungle...\n", player->playerName);
 		Sleep(2000);
 		printf("%s stumbles upon a chest! Inside is a sword!\n", player->playerName);
@@ -69,13 +76,17 @@ int enterArea(PLAYER* player, LOOTPOOL* lootpool, short areaNum) {
 		// Rolls a random sword
 		ITEM item = returnItem(lootpool);
 		while (item.lootType != SWORD_TYPE) item = returnItem(lootpool);
+		Sleep(2000);
 
-		// Shows off the sword weapon
-		SWORD sword = item.loot.sword;
-		printf("It has %d damage", sword.dmg);
+		// Shows off the sword weapon and equips it
+		printf("It has %d damage!\n", item.loot.sword.dmg);
+		equipWeapon(item.loot.sword.dmg, player);
+
+		Sleep(2000);
 
 		break;
 
+		// Entering next area
 	case 2:
 		printf("%s enters a strange and long forgotten ancient dungeon...\n", player->playerName);
 		Sleep(2000);
@@ -83,12 +94,18 @@ int enterArea(PLAYER* player, LOOTPOOL* lootpool, short areaNum) {
 		Sleep(2000);
 		break;
 
+		// Entering final area
 	case 3:
 		printf("%s starts to feel warmer...\n", player->playerName);
 		Sleep(2000);
 		printf("%s walks into a fiery cave of lava!\n", player->playerName);
 		Sleep(2000);
 		break;
+		
+		// Winning the game
+	case 4:
+		map->currentMap == WIN;
+		return -1;
 	default:
 		perror("Couldn't load area...\n");
 		return -1;
@@ -96,11 +113,13 @@ int enterArea(PLAYER* player, LOOTPOOL* lootpool, short areaNum) {
 
 	// Sets this as the previous map so it only says text once
 	map->previousMap = areaNum;
+	map->currentMap++;
 	return 1;
 }
 
-// Choose left or right path, adds interactivity but changes nothing at the moment
-short choosePath(PLAYER* player, LOOTPOOL* lootpool) {
+// Choose left or right path, adds interactivity. Direction doesn't matter since its based on an arbitrary roll.
+short choosePath(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
+	printf("\n\n\n\n\n");
 	printf("%s comes to a fork in the path...\n", player->playerName);
 	printf("Which direction do they choose to go?\n");
 	printf("1. Left\n");
@@ -122,19 +141,19 @@ short choosePath(PLAYER* player, LOOTPOOL* lootpool) {
 	}
 
 	// % chance of finding an item
-	if (pathWithItem > 50) {
+	if (pathWithItem <= 50) {
 		printf("You found an item!\n");
 		ITEM item = returnItem(lootpool);
 		// Logic for printing out item information
 		switch (item.lootType) {
 		case SWORD_TYPE:
-			printf("It's a sword with %d damage.\n", item.loot.sword.dmg);
+			printf("It's a sword with %d damage!\n", item.loot.sword.dmg);
 			break;
 		case ARMOUR_TYPE:
-			printf("It's some armour with %d defense.\n", item.loot.armour.def);
+			printf("It's some armour with %d defense!\n", item.loot.armour.def);
 			break;
 		case HEALTHPOT_TYPE:
-			printf("It's a health potion that heals %d hp.\n", HEALTHPOTHEALING);
+			printf("It's a health potion that heals %d hp!\n", HEALTHPOTHEALING);
 			break;
 		default:
 			item.lootType = SWORD_TYPE;
@@ -173,6 +192,7 @@ short choosePath(PLAYER* player, LOOTPOOL* lootpool) {
 				printf("The item randomly burst into a billion pieces?!\n");
 				break;
 			}
+			break;
 		// Player refuses item
 		case 2:
 			printf("You put the item down.\n");
@@ -185,11 +205,12 @@ short choosePath(PLAYER* player, LOOTPOOL* lootpool) {
 }
 
 short fightMenu(PLAYER* player, ENEMY* enemies) {
+	printf("\n\n\n\n\n");
 	printf("You've encountered an enemy!\n");
 	ENEMY* enemy = malloc(sizeof(ENEMY));
 	if (enemy == NULL)
 		return ERRORS;
-	*enemy = enemies[rand() % 5];
+	*enemy = enemies[rand() % TOTALENEMIES];
 
 	// Main loop for fighting
 	short enemyOption = 0;
@@ -198,8 +219,9 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 
 		////////////////////////////////////////////////////////////////////////////////////
 		// Determines players option
-		short userSuccess;
+		short userDidSomethingProductive;
 		do {
+			printf("\n\n\n\n\n");
 			// Print out menu options
 			printf("The %s has %d health.\n", enemy->enemyName, enemy->health);
 			printf("1) Attack\n");
@@ -209,7 +231,7 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 
 			userinput = getIntInput(1, 4);
 
-			userSuccess = 0;
+			userDidSomethingProductive = 0;
 			switch (userinput) {
 				// User wants to leave
 			case EXITCODE:
@@ -242,7 +264,7 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 					printf("%s recovered %d health and now has %d health!\n", player->playerName, HEALTHPOTHEALING, player->health);
 				else {
 					printf("%s has no health pots to use...\n", player->playerName);
-					userSuccess = -1;
+					userDidSomethingProductive = -1;
 				}
 				break;
 
@@ -250,8 +272,8 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 			case 4:
 				printf("%s has %d health, %d damage, %d critical hit chance, %d defence, and %d health potions remaining.\n", 
 				player->playerName, player->health, player->damage, player->critChance, player->defence, player->healthPots);
-
-				userSuccess = -1;
+				userDidSomethingProductive = -1;
+				break;
 
 				// User defends, also default case
 			case 2:
@@ -260,10 +282,15 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 				player->defence << 1;
 				break;
 			}
-		} while (userSuccess != -1);
+		} while (userDidSomethingProductive == -1);
+
+		// Exit loop if enemy died
+		if (enemy->health <= 0)
+			break;
 
 		////////////////////////////////////////////////////////////////////////////////////
 		// Determines enemies option
+
 		enemyOption = (rand() % 2) + 1;
 
 		switch (enemyOption) {
@@ -297,6 +324,7 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 
 	// If the player dies, print exit message
 	if (player->health <= 0) {
+		printf("\n\n\n\n\n");
 		printf("%s has perished to a %s...\n", player->playerName, enemy->enemyName);
 		Sleep(2000);
 		printf("Their journey has come to an end...\n");
@@ -305,12 +333,15 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 		return EXITCODE;
 	}
 
+	printf("%s has slain the %s!\n", player->playerName, enemy->enemyName);
+	Sleep(1000);
+
 	if (enemy != NULL) free(enemy);
 	return 1;
 }
 
 // Free Map Memory
-void destroyMap() {
+void destroyMap(MAP* map) {
 	if (map != NULL) free(map);
 }
 

@@ -1,4 +1,5 @@
 #pragma once
+#include "constants.h"
 typedef struct player {
 	int health;
 	int damage;
@@ -8,7 +9,7 @@ typedef struct player {
 	char* playerName; 
 }PLAYER;
 
-void initPlayer(PLAYER*);
+PLAYER* initPlayer();
 
 void setName(char* name, PLAYER* player);
 

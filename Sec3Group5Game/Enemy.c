@@ -41,9 +41,9 @@ ENEMY* readEnemyFromFile(char* fileName) {
 		exit(EXIT_FAILURE);
 	}
 	
-	ENEMYLIST* enemies = makeEnemyList(5);
+	ENEMYLIST* enemies = makeEnemyList(TOTALENEMIES);
 	//read from each file item
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < TOTALENEMIES; i++) {
 		//get information from file to populate seats
 		char buf[100];
 		char enemyName[100];
