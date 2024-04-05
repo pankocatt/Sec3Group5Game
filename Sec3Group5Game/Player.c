@@ -32,7 +32,7 @@ void addHealthPot(int healthPot, PLAYER* player)
 int useHealthPot(PLAYER* player)
 {
 	if (player->healthPots > 0) {
-		player->health += HEALTHPOT;
+		player->health += HEALTHPOTHEALING;
 		return 1;
 	}
 	return -1;

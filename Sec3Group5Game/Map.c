@@ -134,7 +134,7 @@ short choosePath(PLAYER* player, LOOTPOOL* lootpool) {
 			printf("It's some armour with %d defense.\n", item.loot.armour.def);
 			break;
 		case HEALTHPOT_TYPE:
-			printf("It's a healthpot that heals %d hp.\n", item.loot.healthpot.health);
+			printf("It's a health potion that heals %d hp.\n", HEALTHPOTHEALING);
 			break;
 		default:
 			item.lootType = SWORD_TYPE;
@@ -144,7 +144,8 @@ short choosePath(PLAYER* player, LOOTPOOL* lootpool) {
 
 		// Accepting the item
 		printf("Do you accept the item?\n");
-		printf("1) Yes\n2) No\n");
+		printf("1) Yes\n");
+		printf("2) No\n");
 		input = getIntInput(1, 2);
 		
 		switch (input) {
@@ -165,7 +166,7 @@ short choosePath(PLAYER* player, LOOTPOOL* lootpool) {
 				printf("%s's armour increased by %d to %d!\n", player->playerName, item.loot.armour.def, player->defence);
 				break;
 			case HEALTHPOT_TYPE:
-				addHealthPot(item.loot., player);
+				addHealthPot(1, player);
 				printf("%s gained a health potion!\n", player->playerName);
 				break;
 			default:
@@ -238,7 +239,7 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 				  // Using health potion
 			case 3:
 				if (useHealthPot(player) == 1)
-					printf("%s recovered %d health and now has %d health!\n", player->playerName, HEALTHPOT, player->health);
+					printf("%s recovered %d health and now has %d health!\n", player->playerName, HEALTHPOTHEALING, player->health);
 				else {
 					printf("%s has no health pots to use...\n", player->playerName);
 					userSuccess = -1;
