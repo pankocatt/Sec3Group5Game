@@ -13,8 +13,8 @@ bool CopySword(SWORD* dest, SWORD src) {
 		return false;
 	}
 
-	src.crit = dest->crit;
-	src.dmg = dest->dmg;
+	dest->dmg = src.dmg;
+	dest->crit = src.crit;
 
 	return true;
 }
@@ -30,7 +30,7 @@ bool CopyArmour(ARMOUR* dest, ARMOUR src) {
 		return false;
 	}
 
-	src.def = dest->def;
+	dest->def = src.def;
 
 	return true;
 }
@@ -46,7 +46,7 @@ bool CopyHealthPot(HEALTHPOT* dest, HEALTHPOT src) {
 		return false;
 	}
 
-	src.health = dest->health;
+	dest->health = src.health;
 
 	return true;
 }
