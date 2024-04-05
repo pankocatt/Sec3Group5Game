@@ -1,34 +1,39 @@
 SWORD_TYPE
 15
 20
-Shortsword
+Muramasa
+
 SWORD_TYPE
 20
 15
-Longsword
-ARMOUR_TYPE
-5
-Chainmail
-ARMOUR_TYPE
-10
-Enforced Chainmail
-HEALTHPOT_TYPE
-20
-Potion
+Blue Moon Flail
+
 SWORD_TYPE
 10
 20
-Sharpened Dagger
+Keybrand
+
 SWORD_TYPE
 5
 4
-Stone
+Unenchanted Sword
+
 ARMOUR_TYPE
 5
-Helmet
+Cobalt Shield
+
+ARMOUR_TYPE
+10
+Shadow Armour
+
+ARMOUR_TYPE
+6
+Bone Armour
+
 ARMOUR_TYPE
 8
-Helmet
+Obsidian Shield
+
 HEALTHPOT_TYPE
-20
-Potion
+
+HEALTHPOT_TYPE

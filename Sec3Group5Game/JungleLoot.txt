@@ -1,34 +1,39 @@
 SWORD_TYPE
 5
 10
-Dagger
+Copper Shortsword
+
 SWORD_TYPE
 1
 5
 Stick
-ARMOUR_TYPE
-1
-Leaf
-ARMOUR_TYPE
-5
-Cloth
-HEALTHPOT_TYPE
-10
-Potion
+
 SWORD_TYPE
 8
 15
-Dagger
+Blade of Grass
+
 SWORD_TYPE
 2
 7
-Stick
+Big Stick
+
+ARMOUR_TYPE
+1
+Leaf Armour
+
+ARMOUR_TYPE
+5
+Iron Armour
+
 ARMOUR_TYPE
 2
-Leaf
+Wood Armour
+
 ARMOUR_TYPE
 9
-Cloth
+Jungle Armour
+
 HEALTHPOT_TYPE
-10
-Potion
+
+HEALTHPOT_TYPE
