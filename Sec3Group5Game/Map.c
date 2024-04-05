@@ -279,6 +279,7 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 				// User defends, also default case
 			case 2:
 			default:
+				printf("%s increases their defense!\n", player->playerName);
 				userinput = 2;
 				player->defence <<= 1;
 				break;
