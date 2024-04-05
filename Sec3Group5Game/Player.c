@@ -73,11 +73,25 @@ void increaseCrit(int crit, PLAYER* player)
 
 int playerDealDmg(PLAYER* player)
 {
-	int critHit = (rand() % 100) + 1;
-	if (critHit <= player->critChance) {
-		return (player->damage << 1);
+	// Saves players initial stats to modify
+	int critChance = player->critChance;
+	int damageShift = player->damage;
+
+	// Loops while player has more crit chance remaining than 0
+	while (critChance > 0) {
+		// If crit chance is higher than 100, add crit damage
+		if (critChance >= 100) {
+			damageShift << 1;
+			critChance -= 100;
+			continue;
+		}
+
+		// If critchance is lower than 100, see if attack adds more crit then return damage
+		int critHit = (rand() % 100) + 1;
+		if (critHit <= critChance) {
+			damageShift << 1;
+			return damageShift;
+		}
 	}
-	else {
-		return player->damage;
-	}
+	return player->damage;
 }
