@@ -22,7 +22,7 @@ void mainMenu();
 int getIntInput(int, int);
 
 // Used when you first enter a new area
-int enterArea(MAP*, PLAYER*, LOOTPOOL*, short);
+int enterArea(MAP*, PLAYER*, LOOTPOOL*);
 
 // Choose left or right path, adds interactivity but changes nothing
 short choosePath(MAP*, PLAYER*, LOOTPOOL* lootpool);

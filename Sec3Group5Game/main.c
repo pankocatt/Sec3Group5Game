@@ -37,7 +37,7 @@ int main(int argc, char* argv[]) {
             LOOTPOOL* lootpool = setUpLootPool(argv[map->currentMap + 3]);
 
             // Enters new area
-            if (enterArea(map, player, lootpool, map->currentMap) == -1)
+            if (enterArea(map, player, lootpool) == -1)
                 break;
 
             // This is the loop for getting new items and fighting
