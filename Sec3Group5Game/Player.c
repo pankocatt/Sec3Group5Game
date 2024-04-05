@@ -23,7 +23,14 @@ void addHealthPot(int healthPot, PLAYER* player)
 
 int playerTakeDmg(int dmg, PLAYER* player)
 {
-	player->health -= (dmg - player->defence);
+	int actualDmg = dmg - player->defence;
+	if (actualDmg <= 0) {
+		player->health = player->health;
+	}
+	else{
+		player->health -= actualDmg;
+	}
+	
 	if (player->health <= 0)
 		return -1;
 	else

@@ -20,4 +20,4 @@ int playerTakeDmg(int dmg, PLAYER* player);
 
 void increaseCrit(int crit, PLAYER* player);
 
-int playerDealDmg(int dmg, PLAYER* player);
+int playerDealDmg(PLAYER* player);

@@ -9,7 +9,7 @@ int enemyTakeDmg(int dmg, ENEMY *enemy)
         return 1;
 }
 
-int enemyDealDmg(int dmg, ENEMY* enemy)
+int enemyDealDmg(ENEMY* enemy)
 {
 	return enemy->damage;
 }
@@ -37,13 +37,10 @@ ENEMY makeEnemy(int health, int damage, char* enemyName)
 ENEMY* readEnemyFromFile(char* fileName) {
 	FILE* fp = fopen(fileName, "r");
 	if (fp == NULL) {
-		createNewFile(fileName);
-		fp = fopen(fileName, "r");
-		if (fp == NULL) {
-			fprintf(stderr, "Could not open file...\n");
-			exit(EXIT_FAILURE);
-		}
+		fprintf(stderr, "Could not open file...\n");
+		exit(EXIT_FAILURE);
 	}
+	
 	ENEMYLIST* enemies = makeEnemyList(5);
 	//read from each file item
 	for (int i = 0; i < 5; i++) {
