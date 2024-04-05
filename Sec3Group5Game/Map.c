@@ -44,13 +44,13 @@ int getIntInput(int min, int max) {
 }
 
 // Used when you first enter a new area
-int enterArea(MAP* map, PLAYER* player, LOOTPOOL* lootpool, short areaNum) {
+int enterArea(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 	printf("\n\n\n\n\n");
 	// Early exit if map is already selected or player wants to leave
-	if (areaNum == map->previousMap || areaNum == EXITCODE)
+	if (map->currentMap == map->previousMap || map->currentMap == EXITCODE)
 		return;
 
-	switch (areaNum) {
+	switch (map->currentMap) {
 	// This is the starting case, allows the player to get into the game
 	case 1:
 		printf("The weary adventurer starts on their journey...\n");
@@ -112,7 +112,7 @@ int enterArea(MAP* map, PLAYER* player, LOOTPOOL* lootpool, short areaNum) {
 	}
 
 	// Sets this as the previous map so it only says text once
-	map->previousMap = areaNum;
+	map->previousMap = map->currentMap;
 	map->currentMap++;
 	return 1;
 }
