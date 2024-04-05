@@ -9,7 +9,7 @@ int enemyTakeDmg(int dmg, ENEMY *enemy)
         return 1;
 }
 
-int enemyDealDmg(int dmg, ENEMY* enemy)
+int enemyDealDmg(ENEMY* enemy)
 {
 	return enemy->damage;
 }

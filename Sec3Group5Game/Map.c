@@ -68,7 +68,7 @@ int enterArea(PLAYER* player, LOOTPOOL* lootpool, short areaNum) {
 
 		// Rolls a random sword
 		ITEM item = returnItem(lootpool);
-		while (item.lootType != SWORD_TYPE) { item = returnItem(lootpool); }
+		while (item.lootType != SWORD_TYPE) item = returnItem(lootpool);
 
 		// Shows off the sword weapon
 		SWORD sword = item.loot.sword;
@@ -181,13 +181,13 @@ short choosePath(PLAYER* player, LOOTPOOL* lootpool) {
 
 short fightMenu(PLAYER* player, ENEMY* enemies) {
 	printf("You've encountered an enemy!\n");
-	short enemyNumber = rand() % 5;
 	ENEMY* enemy = malloc(sizeof(ENEMY));
 	if (enemy == NULL)
 		return ERRORS;
-	*enemy = enemies[enemyNumber];
+	*enemy = enemies[rand() % 5];
 
 	// Main loop for fighting
+	short enemyOption = 0;
 	do {
 		// Print out menu options
 		printf("The %s has %d health.\n", enemy->enemyName, enemy->health);
@@ -197,20 +197,77 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 
 		short userinput = getIntInput(1, 3);
 
+		////////////////////////////////////////////////////////////////////////////////////
 		// Determines players option
 		switch (userinput) {
 		case EXITCODE:
 			if (enemy != NULL) free(enemy);
 			return EXITCODE;
 			break;
-		case 1:
-			enemyTakeDmg(player->damage, enemy);
+		case 1: { // Brackets for making MSVC stop complaining
+			// Checks if the enemy is defending
+			short keepOdd = player->damage % 2;
+			if (enemyOption == 2)
+				player->damage >> 1;
+
+			// Attack the enemt
+			printf("You attack for %d damage\n", player->damage);
+			enemyTakeDmg(playerDealDmg(player), enemy);
+
+			// Reset player damage
+			if (enemyOption == 2) {
+				player->damage << 1;
+				player->damage += keepOdd;
+			}
 			break;
 		}
+
+		case 2:
+		default:
+			userinput = 2;
+			player->defence << 1;
+			break;
+		}
+
+		////////////////////////////////////////////////////////////////////////////////////
+		// Determines enemies option
+		enemyOption = (rand() % 2) + 1;
+
+		switch (enemyOption) {
+		case 1:
+			// Damages the player
+			printf("The %s attacks!\n", enemy->enemyName);
+			playerTakeDmg(enemyDealDmg(enemy), player);
+
+			// Determines how much damage is taken
+			int damageTaken = enemy->damage - player->defence;
+			if (damageTaken <= 0)
+				printf("%s takes no damage!\n", player->playerName);
+			else
+				printf("%s takes %d damage!\n", player->playerName, damageTaken);
+			break;
+
+		case 2:
+		default:
+			enemyOption = 2;
+			printf("The %s bolsters is defence!\n", enemy->enemyName);
+			break;
+		}
+
+		////////////////////////////////////////////////////////////////////////////////////
+
+		// Reset player defence after enemy move
+		if (userinput == 2)
+			player->defence >> 1;
+
 	} while (enemy->health > 0 && player->health > 0);
 
 	if (player->health <= 0) {
 		printf("%s has perished to a %s...\n", player->playerName, enemy->enemyName);
+		Sleep(2000);
+		printf("Their journey has come to an end...\n");
+		Sleep(2000);
+		printf("Long will %s be remembered...\n", player->playerName);
 		return EXITCODE;
 	}
 
