@@ -245,7 +245,7 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 				// Checks if the enemy is defending
 				short keepOdd = player->damage % 2;
 				if (enemyOption == 2)
-					player->damage >> 1;
+					player->damage >>= 1;
 
 				// Attack the enemt
 				printf("You attack for %d damage\n", player->damage);
@@ -253,7 +253,7 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 
 				// Reset player damage
 				if (enemyOption == 2) {
-					player->damage << 1;
+					player->damage <<= 1;
 					player->damage += keepOdd;
 				}
 				break;
@@ -280,7 +280,7 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 			case 2:
 			default:
 				userinput = 2;
-				player->defence << 1;
+				player->defence <<= 1;
 				break;
 			}
 		} while (userDidSomethingProductive == -1);
@@ -320,7 +320,7 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 
 		// Reset player defence after enemy move
 		if (userinput == 2)
-			player->defence >> 1;
+			player->defence >>= 1;
 
 	} while (enemy->health > 0 && player->health > 0);
 
