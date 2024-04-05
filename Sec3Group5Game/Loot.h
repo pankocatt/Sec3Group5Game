@@ -35,7 +35,7 @@ typedef struct item {
 } ITEM;
 
 typedef struct lootPool {
-	ITEM* pool[MAXLOOT];
+	ITEM pool[MAXLOOT];
 } LOOTPOOL;
 
 SWORD CreateSword(int dmg, int crit);

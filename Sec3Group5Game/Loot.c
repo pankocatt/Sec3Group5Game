@@ -92,19 +92,74 @@ LOOTPOOL* readLootPoolFromFile(char* fileName) {
 	}
 
 	LOOTPOOL* lootpool = initLootPool(MAXLOOT);
+	ITEM item;
 	//read from each file item
 	for (int i = 0; i < MAXLOOT; i++) {
-		////get information from file to populate seats
-		//char buf[100];
-		//char enemyName[100];
-		//fgets(buf, 100, fp);
+		//get information from file to populate seats
+		char lootType[MAXNAME];
 
-		//strncpy(enemyName, buf, 100);
+		// Gets loot type from file
+		fgets(lootType, MAXNAME, fp);
 
+		// Determines how to read file based on item type
+		// Swords
+		if (strncmp(lootType, "SWORD_TYPE\n", MAXNAME) == 0) {
+			item.lootType = SWORD_TYPE;
+			// Get damage and crit values
+			int damage = 0, crit = 0;
+			if (fscanf(fp, "%d%d", &damage, &crit) != 2) {
+				item.loot.sword.crit = 10;
+				item.loot.sword.dmg = 10;
+			} else {
+				item.loot.sword.crit = crit;
+				item.loot.sword.dmg = damage;
+			}
+			// Get weapon name
+			char itemName[100] = { 0 };
+			fgets(itemName, MAXNAME, fp); // For newline
+			fgets(itemName, MAXNAME, fp);
+			itemName[strlen(itemName) - 1] = '\0';
+			strncpy(item.loot.sword.name, itemName, MAXNAME);
+		}
+		// Armour
+		else if (strncmp(lootType, "ARMOUR_TYPE\n", MAXNAME) == 0) {
+			item.lootType = ARMOUR_TYPE;
+			// Get defence value
+			int defence = 0;
+			if (fscanf(fp, "%d", &defence) != 1) {
+				item.loot.armour.def = 5;
+			}
+			else {
+				item.loot.armour.def = defence;
+			}
+			// Get armour name
+			char itemName[100] = { 0 };
+			fgets(itemName, MAXNAME, fp); // For newline
+			fgets(itemName, MAXNAME, fp);
+			itemName[strlen(itemName) - 1] = '\0';
+			strncpy(item.loot.armour.name, itemName, MAXNAME);
+		}
+		// Health potions
+		else if (strncmp(lootType, "HEALTHPOT_TYPE", MAXNAME)) {
+			char itemName[100] = { 0 };
+			fgets(itemName, MAXNAME, fp); // For newline
+			item.lootType = HEALTHPOT_TYPE;
+			item.loot.healthpot.health = HEALTHPOTHEALING;
+		}
+		// Default
+		else {
+			item.lootType = SWORD_TYPE;
+			item.loot.sword.dmg = 10;
+			item.loot.sword.crit = 10;
+			char itemName[100];
+			fgets(itemName, MAXNAME, fp); // For newline
+			strncpy(item.loot.sword.name, "Unknown Type", MAXNAME);
+		}
+		//get rid of the pesky newlines
+		char buf[100];
+		fgets(buf, 100, fp);
 
-		//if ( strcmp())
-
-		////lootpool->pool[i] = TO FIX
+		lootpool->pool[i] = item;
 	}
 
 	fclose(fp);
@@ -113,12 +168,8 @@ LOOTPOOL* readLootPoolFromFile(char* fileName) {
 }
 
 ITEM returnItem(LOOTPOOL* lp) {
-
-	srand(time(NULL));
-
-	int size = (sizeof((*lp)) / MAXLOOT);
-	int randomElement = rand() % size + 1;
+	int randomElement = rand() % MAXLOOT;
 	// Returns a random element from the lootpool
-	return(*(lp->pool[randomElement]));
+	return lp->pool[randomElement];
 }
 

@@ -1,11 +1,13 @@
 // Dina Makhdoom, Kyle Wager, Rhys Hunt Section 3 
 
 #include <stdio.h>
+#include <time.h>
 #include "Map.h"
 #include "main.h"
 #include "constants.h"
 
 int main(int argc, char* argv[]) {
+    srand((unsigned)time(NULL));
     // Check that there are enough command line arguments
     if (argc < 6) {
         perror("Not enough arguments...\n");
@@ -42,7 +44,8 @@ int main(int argc, char* argv[]) {
             LOOTPOOL* lootpool = readLootPoolFromFile(argv[map->currentMap + 3]);
 
             // Enters new area
-            if (enterArea(map, player, lootpool) == -1)
+            int area = enterArea(map, player, lootpool);
+            if (area == EXITCODE || area == -1)
                 break;
 
             // This is the loop for getting new items and fighting

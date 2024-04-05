@@ -55,5 +55,8 @@
     <Text Include="DungeonLoot.txt" />
     <Text Include="LavaCaveLoot.txt" />
     <Text Include="JungleLoot.txt" />
+    <Text Include="EnemyAreaOne.txt" />
+    <Text Include="EnemyAreaTwo.txt" />
+    <Text Include="EnemyAreaThree.txt" />
   </ItemGroup>
 </Project>

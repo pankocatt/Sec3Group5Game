@@ -6,7 +6,7 @@ Skeleton Defender
 100
 9
 
-Dungeon slime
+Dungeon Slime
 75
 18
 

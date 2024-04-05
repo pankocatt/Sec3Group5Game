@@ -146,10 +146,10 @@ short choosePath(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 		// Logic for printing out item information
 		switch (item.lootType) {
 		case SWORD_TYPE:
-			printf("It's a sword with %d damage and +%d critical hit chance!\n", item.loot.sword.dmg, item.loot.sword.crit);
+			printf("It's a %s with %d damage and +%d critical hit chance!\n", item.loot.sword.name, item.loot.sword.dmg, item.loot.sword.crit);
 			break;
 		case ARMOUR_TYPE:
-			printf("It's some armour with %d defense!\n", item.loot.armour.def);
+			printf("It's a %s with %d defense!\n", item.loot.armour.name, item.loot.armour.def);
 			break;
 		case HEALTHPOT_TYPE:
 			printf("It's a health potion that heals %d hp!\n", HEALTHPOTHEALING);
@@ -289,6 +289,7 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 		if (enemy->health <= 0)
 			break;
 
+		Sleep(2000);
 		////////////////////////////////////////////////////////////////////////////////////
 		// Determines enemies option
 

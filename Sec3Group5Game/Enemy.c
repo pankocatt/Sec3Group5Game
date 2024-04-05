@@ -1,4 +1,5 @@
 #include "Enemy.h"
+#include "constants.h"
 
 int enemyTakeDmg(int dmg, ENEMY *enemy)
 {
@@ -44,16 +45,11 @@ ENEMY* readEnemyFromFile(char* fileName) {
 	ENEMYLIST* enemies = makeEnemyList(TOTALENEMIES);
 	//read from each file item
 	for (int i = 0; i < TOTALENEMIES; i++) {
-		//get information from file to populate seats
-		char buf[100];
-		char enemyName[100];
-		fgets(buf, 100, fp);
+		//get information from file to populate enemies
 
-		if (0 > buf[0] || buf[0] > 128)
-			strncpy(enemyName, "NA\n", 100);
-		else
-			strncpy(enemyName, buf, 100);
-
+		char enemyName[NAMELENGTH];
+		fgets(enemyName, NAMELENGTH, fp);
+		enemyName[strlen(enemyName) - 1] = '\0';
 		
 		int health = 0;
 		//if scanf doesnt get 1 values, default them
@@ -67,7 +63,8 @@ ENEMY* readEnemyFromFile(char* fileName) {
 			damage = 0;
 		}
 
-		//get rid of the pesky newline
+		//get rid of the pesky newlines
+		char buf[100];
 		fgets(buf, 100, fp);
 		fgets(buf, 100, fp);
 
