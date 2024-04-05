@@ -51,4 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="DungeonLoot.txt" />
+    <Text Include="CastleLoot.txt" />
+    <Text Include="FieldsLoot.txt" />
+  </ItemGroup>
 </Project>
