@@ -1,0 +1,34 @@
+SWORD_TYPE
+15
+20
+Shortsword
+SWORD_TYPE
+20
+15
+Longsword
+ARMOUR_TYPE
+5
+Chainmail
+ARMOUR_TYPE
+10
+Enforced Chainmail
+HEALTHPOT_TYPE
+20
+Potion
+SWORD_TYPE
+10
+20
+Sharpened Dagger
+SWORD_TYPE
+5
+4
+Stone
+ARMOUR_TYPE
+5
+Helmet
+ARMOUR_TYPE
+8
+Helmet
+HEALTHPOT_TYPE
+20
+Potion
