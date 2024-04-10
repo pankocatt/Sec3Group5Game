@@ -8,11 +8,11 @@ Skeleton Defender
 
 Dungeon Slime
 75
-18
+16
 
 Skeleton Caster
 50
-27
+20
 
 Paladin
 130

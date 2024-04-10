@@ -1,18 +1,18 @@
 Hell Bat
 140
-20
+40
 
 Lava Slime
 200
-30
+28
 
 Wall of Flesh
-4000
-60
+400
+35
 
 Demon
 240
-37
+30
 
 Lava Snail \o/
 5

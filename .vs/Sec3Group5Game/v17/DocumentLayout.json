@@ -3,28 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\EnemyAreaOne.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|solutionrelative:Sec3Group5Game\\EnemyAreaOne.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\EnemyAreaTwo.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|solutionrelative:Sec3Group5Game\\EnemyAreaTwo.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\EnemyAreaThree.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|solutionrelative:Sec3Group5Game\\EnemyAreaThree.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Enemy.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|solutionrelative:Sec3Group5Game\\Enemy.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Map.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|solutionrelative:Sec3Group5Game\\Map.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Loot.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|solutionrelative:Sec3Group5Game\\Loot.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Enemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|solutionrelative:Sec3Group5Game\\Enemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Player.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|solutionrelative:Sec3Group5Game\\Player.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Map.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|solutionrelative:Sec3Group5Game\\Map.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|solutionrelative:Sec3Group5Game\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Loot.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|solutionrelative:Sec3Group5Game\\Loot.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Player.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|solutionrelative:Sec3Group5Game\\Player.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\constants.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -118,15 +130,66 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EnemyAreaThree.txt",
+              "DocumentMoniker": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\EnemyAreaThree.txt",
+              "RelativeDocumentMoniker": "Sec3Group5Game\\EnemyAreaThree.txt",
+              "ToolTip": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\EnemyAreaThree.txt",
+              "RelativeToolTip": "Sec3Group5Game\\EnemyAreaThree.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-04-10T19:07:25.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "EnemyAreaTwo.txt",
+              "DocumentMoniker": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\EnemyAreaTwo.txt",
+              "RelativeDocumentMoniker": "Sec3Group5Game\\EnemyAreaTwo.txt",
+              "ToolTip": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\EnemyAreaTwo.txt",
+              "RelativeToolTip": "Sec3Group5Game\\EnemyAreaTwo.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-04-10T19:04:13.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EnemyAreaOne.txt",
+              "DocumentMoniker": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\EnemyAreaOne.txt",
+              "RelativeDocumentMoniker": "Sec3Group5Game\\EnemyAreaOne.txt",
+              "ToolTip": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\EnemyAreaOne.txt",
+              "RelativeToolTip": "Sec3Group5Game\\EnemyAreaOne.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-04-10T19:04:06.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Map.c",
               "DocumentMoniker": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Map.c",
               "RelativeDocumentMoniker": "Sec3Group5Game\\Map.c",
               "ToolTip": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Map.c",
               "RelativeToolTip": "Sec3Group5Game\\Map.c",
-              "ViewState": "AQIAAC0BAAAAAAAAAAAqwEsBAAAOAAAA",
+              "ViewState": "AQIAABgBAAAAAAAAAAAAAC4BAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-04-03T19:47:17.369Z",
+              "WhenOpened": "2024-04-03T19:47:17.369Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Enemy.c",
+              "DocumentMoniker": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Enemy.c",
+              "RelativeDocumentMoniker": "Sec3Group5Game\\Enemy.c",
+              "ToolTip": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Enemy.c",
+              "RelativeToolTip": "Sec3Group5Game\\Enemy.c",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-03-15T18:08:01.277Z",
               "EditorCaption": ""
             },
             {
@@ -135,20 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Enemy.c",
-              "DocumentMoniker": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Enemy.c",
-              "RelativeDocumentMoniker": "Sec3Group5Game\\Enemy.c",
-              "ToolTip": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Enemy.c",
-              "RelativeToolTip": "Sec3Group5Game\\Enemy.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-03-15T18:08:01.277Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "Player.c",
               "DocumentMoniker": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Player.c",
               "RelativeDocumentMoniker": "Sec3Group5Game\\Player.c",
@@ -156,12 +206,11 @@
               "RelativeToolTip": "Sec3Group5Game\\Player.c",
               "ViewState": "AQIAADwAAAAAAAAAAAAAAAgAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-03-21T19:29:05.287Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-21T19:29:05.287Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "Loot.c",
               "DocumentMoniker": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Loot.c",
               "RelativeDocumentMoniker": "Sec3Group5Game\\Loot.c",
@@ -169,12 +218,11 @@
               "RelativeToolTip": "Sec3Group5Game\\Loot.c",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-04-03T19:47:18.668Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T19:47:18.668Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Loot.h",
               "DocumentMoniker": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Loot.h",
               "RelativeDocumentMoniker": "Sec3Group5Game\\Loot.h",
@@ -186,7 +234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "constants.h",
               "DocumentMoniker": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\constants.h",
               "RelativeDocumentMoniker": "Sec3Group5Game\\constants.h",
@@ -198,7 +246,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "main.h",
               "DocumentMoniker": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\main.h",
               "RelativeDocumentMoniker": "Sec3Group5Game\\main.h",
@@ -210,7 +258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Enemy.h",
               "DocumentMoniker": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Enemy.h",
               "RelativeDocumentMoniker": "Sec3Group5Game\\Enemy.h",
@@ -218,12 +266,11 @@
               "RelativeToolTip": "Sec3Group5Game\\Enemy.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-15T17:07:12.755Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-15T17:07:12.755Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "Player.h",
               "DocumentMoniker": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Player.h",
               "RelativeDocumentMoniker": "Sec3Group5Game\\Player.h",
@@ -235,7 +282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "main.c",
               "DocumentMoniker": "C:\\Users\\huntr\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\main.c",
               "RelativeDocumentMoniker": "Sec3Group5Game\\main.c",
