@@ -1,6 +1,8 @@
 // Dina Makhdoom, Kyle Wager, Rhys Hunt Section 3 
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
 #include <time.h>
 #include "Map.h"
 #include "main.h"
@@ -29,41 +31,48 @@ int main(int argc, char* argv[]) {
     }
 
     int userInput;
+    int returnedValues = GOODCODE;
     // Main program loop
     do {
         mainMenu();
         userInput = getIntInput(1, 1); // Have user enter main menu option
 
-        // Choose what to do based on user input
-        if (userInput == 2)
-            printf("File loading not added yet.\n");
-
-        while (userInput != EXITCODE) {
+        while (userInput != EXITCODE && returnedValues != EXITCODE) {
             // Enters next area
             ENEMYLIST* enemies = readEnemyFromFile(argv[map->currentMap]);
             LOOTPOOL* lootpool = readLootPoolFromFile(argv[map->currentMap + 3]);
+            if (enemies == NULL || lootpool == NULL) {
+                perror("Couldn't correctly read files...\n");
+                if (enemies != NULL) free(enemies);
+                if (lootpool != NULL) free(lootpool);
+                break;
+            }
 
             // Enters new area
-            int area = enterArea(map, player, lootpool);
-            if (area == EXITCODE || area == -1)
+            returnedValues = enterArea(map, player, lootpool);
+            if (returnedValues == EXITCODE || returnedValues == ERRORCODE) {
+                if (enemies != NULL) free(enemies);
+                if (lootpool != NULL) free(lootpool);
                 break;
+            }
 
             // This is the loop for getting new items and fighting
             int totalFights = 0;
-            while (userInput != EXITCODE && totalFights < map->totalFights) {
+            while (returnedValues != EXITCODE && totalFights < map->totalFights) {
                 // Lets player select a path for a chance at a new item
-                userInput = choosePath(map, player, lootpool);
-                if (userInput == EXITCODE)
+                returnedValues = choosePath(map, player, lootpool);
+                if (returnedValues == EXITCODE)
                     break;
 
                 // The fight menu for an encounter
-                userInput = fightMenu(player, enemies);
+                returnedValues = fightMenu(player, enemies);
                 totalFights++;
             }
+
             if (enemies != NULL) free(enemies);
             if (lootpool != NULL) free(lootpool);
         }
-    } while (userInput != EXITCODE && map->currentMap != WIN);
+    } while (userInput != EXITCODE && returnedValues != EXITCODE && returnedValues != ERRORCODE && map->currentMap != WIN);
 
     // The win
     if (map->currentMap == WIN) {

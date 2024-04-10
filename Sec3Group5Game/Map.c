@@ -26,7 +26,6 @@ void mainMenu() {
 	printf("        \\/            \\/     \\/                \\/          \\/                  \\/		\n");
 	printf("\n\n");
 	printf("1) New Game\n");
-	//printf("2. Load Game\n");
 	printf("Enter '%d' at any point to exit/return to main menu.\n", EXITCODE);
 }
 
@@ -54,7 +53,7 @@ int enterArea(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 	// This is the starting case, allows the player to get into the game
 	case 1:
 		printf("The weary adventurer starts on their journey...\n");
-		Sleep(2000);
+		SLEEP;
 		printf("Their name is: ");
 		char name[NAMELENGTH];
 		fgets(name, NAMELENGTH, stdin); // Removes the newline
@@ -70,50 +69,50 @@ int enterArea(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 
 		// Begin journey
 		printf("%s happens upon a jungle...\n", player->playerName);
-		Sleep(2000);
+		SLEEP;
 
 		// Rolls a random sword
 		ITEM item = returnItem(lootpool);
 		while (item.lootType != SWORD_TYPE) item = returnItem(lootpool);
 		printf("%s stumbles upon a chest! Inside is a %s!\n", player->playerName, item.loot.sword.name);
-		Sleep(2000);
+		SLEEP;
 
 		// Shows off the weapon and equips it
 		printf("It has %d damage and %d critical hit chance!\n", item.loot.sword.dmg, item.loot.sword.crit);
 		equipWeapon(item.loot.sword, player);
-		Sleep(2000);
+		SLEEP;
 
 		break;
 
 		// Entering next area
 	case 2:
 		printf("%s enters a strange and long forgotten ancient dungeon...\n", player->playerName);
-		Sleep(2000);
+		SLEEP;
 		printf("The dungeon shows its age through the cracks and crumbling walls...\n");
-		Sleep(2000);
+		SLEEP;
 		break;
 
 		// Entering final area
 	case 3:
 		printf("%s starts to feel warmer...\n", player->playerName);
-		Sleep(2000);
+		SLEEP;
 		printf("%s walks into a fiery cave of lava!\n", player->playerName);
-		Sleep(2000);
+		SLEEP;
 		break;
 		
 		// Winning the game
 	case 4:
 		map->currentMap == WIN;
-		return -1;
+		return WIN;
 	default:
 		perror("Couldn't load area...\n");
-		return -1;
+		return ERRORCODE;
 	}
 
 	// Sets this as the previous map so it only says text once
 	map->previousMap = map->currentMap;
 	map->currentMap++;
-	return 1;
+	return GOODCODE;
 }
 
 // Choose left or right path, adds interactivity. Direction doesn't matter since its based on an arbitrary roll.
@@ -127,8 +126,6 @@ short choosePath(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 	if (input == EXITCODE)
 		return EXITCODE;
 
-	short pathWithItem = rand() % 100 + 1;
-
 	// Left path
 	if (input == 1) {
 		printf("%s walks down the left path...\n", player->playerName);
@@ -139,9 +136,12 @@ short choosePath(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 		printf("%s walks down the right path...\n", player->playerName);
 	}
 
+	short pathWithItem = rand() % 100 + 1;
+
 	// % chance of finding an item
 	if (pathWithItem <= 50) {
 		printf("You found an item!\n");
+		SLEEP;
 		ITEM item = returnItem(lootpool);
 		// Logic for printing out item information
 		switch (item.lootType) {
@@ -160,6 +160,7 @@ short choosePath(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 			item.loot.sword.crit = 10;
 			printf("It's a sword with %d damage and +%d critical hit chance.\n", item.loot.sword.dmg, item.loot.sword.crit);
 		}
+		SLEEP;
 
 		// Accepting the item
 		printf("Do you accept the item?\n");
@@ -205,17 +206,21 @@ short choosePath(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 	}
 }
 
+// Shows the fighting GUI(not a gui)
 short fightMenu(PLAYER* player, ENEMY* enemies) {
+	SLEEP;
 	printf("\n\n\n\n\n");
-	printf("You've encountered an enemy!\n");
+	printf("%s encounters an enemy!\n", player->playerName);
+	SLEEP;
 	ENEMY* enemy = malloc(sizeof(ENEMY));
 	if (enemy == NULL)
-		return ERRORS;
+		return ERRORCODE;
 	*enemy = enemies[rand() % TOTALENEMIES];
 
 	// Main loop for fighting
 	short enemyOption = 0;
 	short userinput;
+	bool isEnemyCharged = false;
 	do {
 
 		////////////////////////////////////////////////////////////////////////////////////
@@ -244,15 +249,15 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 			case 1: { // Brackets for making MSVC stop complaining
 				// Checks if the enemy is defending
 				short keepOdd = player->damage % 2;
-				if (enemyOption == 2)
+				if (enemyOption == ENEMY_DEFEND)
 					player->damage >>= 1;
 
 				// Attack the enemt
-				printf("You attack for %d damage\n", player->damage);
+				printf("%s attacks for %d damage!\n",player->playerName, player->damage);
 				enemyTakeDmg(playerDealDmg(player), enemy);
 
 				// Reset player damage
-				if (enemyOption == 2) {
+				if (enemyOption == ENEMY_DEFEND) {
 					player->damage <<= 1;
 					player->damage += keepOdd;
 				}
@@ -290,32 +295,44 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 		if (enemy->health <= 0)
 			break;
 
-		Sleep(2000);
+		SLEEP;
 		////////////////////////////////////////////////////////////////////////////////////
 		// Determines enemies option
 
-		enemyOption = (rand() % 2) + 1;
+		if (enemyOption == 2)
+			enemyOption = 1; // Forces enemy to attack after charging
+		else
+			enemyOption = (rand() % 3) + 1; // Gives enemy random move
 
 		switch (enemyOption) {
-		case 1:
+		// Attack
+		case ENEMY_ATTACK:
 			// Damages the player
 			printf("The %s attacks!\n", enemy->enemyName);
-			playerTakeDmg(enemyDealDmg(enemy), player);
+			int damageTaken = enemyDealDmg(enemy, isEnemyCharged);
+			playerTakeDmg(damageTaken, player);
 
 			// Determines how much damage is taken
-			int damageTaken = enemy->damage - player->defence;
+			damageTaken -= player->defence;
 			if (damageTaken <= 0)
 				printf("%s takes no damage!\n", player->playerName);
 			else
 				printf("%s takes %d damage!\n", player->playerName, damageTaken);
 			break;
 
-		case 2:
+		// Charge
+		case ENEMY_CHARGE:
+			printf("The %s charges up power...\n", enemy->enemyName);
+			isEnemyCharged = true;
+			break;
+		// Defend
+		case ENEMY_DEFEND:
 		default:
-			enemyOption = 2;
+			enemyOption = 3;
 			printf("The %s bolsters is defence!\n", enemy->enemyName);
 			break;
 		}
+		SLEEP
 
 		////////////////////////////////////////////////////////////////////////////////////
 
@@ -329,15 +346,15 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 	if (player->health <= 0) {
 		printf("\n\n\n\n\n");
 		printf("%s has perished to a %s...\n", player->playerName, enemy->enemyName);
-		Sleep(2000);
+		SLEEP;
 		printf("Their journey has come to an end...\n");
-		Sleep(2000);
+		SLEEP;
 		printf("Long will %s be remembered...\n", player->playerName);
 		return EXITCODE;
 	}
 
 	printf("%s has slain the %s!\n", player->playerName, enemy->enemyName);
-	Sleep(1000);
+	SLEEP;
 
 	if (enemy != NULL) free(enemy);
 	return 1;
