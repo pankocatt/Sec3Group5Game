@@ -10,9 +10,12 @@ int enemyTakeDmg(int dmg, ENEMY *enemy)
         return 1;
 }
 
-int enemyDealDmg(ENEMY* enemy)
+int enemyDealDmg(ENEMY* enemy, bool isCharged)
 {
-	return enemy->damage;
+	if (isCharged == true) 
+		return enemy->damage * 1.5;
+	else
+		return enemy->damage;
 }
 
 ENEMYLIST* makeEnemyList(int maxEnemies)
