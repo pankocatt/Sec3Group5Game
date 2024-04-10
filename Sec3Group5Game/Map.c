@@ -312,6 +312,8 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 			int damageTaken = enemyDealDmg(enemy, isEnemyCharged);
 			playerTakeDmg(damageTaken, player);
 
+			isEnemyCharged = false;
+
 			// Determines how much damage is taken
 			damageTaken -= player->defence;
 			if (damageTaken <= 0)
