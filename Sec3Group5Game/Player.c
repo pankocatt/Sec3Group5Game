@@ -15,7 +15,7 @@ PLAYER* initPlayer() {
 	player->damage = 0;
 	player->defence = 2;
 	player->health = 15;
-	player->healthPots = 3;
+	player->healthPots = 0;
 
 	return player;
 }
@@ -41,10 +41,10 @@ void addHealthPot(PLAYER* player)
 	player->healthPots++;
 }
 
-int useHealthPot(PLAYER* player)
+int useHealthPot(PLAYER* player, int mapNum)
 {
 	if (player->healthPots > 0) {
-		player->health += HEALTHPOTHEALING;
+		player->health += HEALTHPOTHEALING * (1.0 + ((double)(mapNum - 1) / 2.0));
 		player->healthPots--;
 		return 1;
 	}

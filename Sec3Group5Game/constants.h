@@ -6,7 +6,7 @@
 #define GOODCODE			1
 #define NAMELENGTH			20
 #define TOTALENEMIES		5
-#define HEALTHPOTHEALING	20
+#define HEALTHPOTHEALING	20.0
 #define SLEEP				Sleep(1000);
 
 #define	ENEMY_ATTACK		1

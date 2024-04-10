@@ -5,8 +5,7 @@
 #include "Loot.h"
 
 typedef struct map {
-	short  currentMap;
-	short previousMap;
+	short currentMap;
 
 	short totalFights;
 } MAP;
@@ -30,7 +29,7 @@ short choosePath(MAP*, PLAYER*, LOOTPOOL* lootpool);
 
 // Fighting options
 // Main fight menu
-short fightMenu(PLAYER*, ENEMY*);
+short fightMenu(MAP*, PLAYER*, ENEMY*);
 
 // Misc.
 // Free Map Memory

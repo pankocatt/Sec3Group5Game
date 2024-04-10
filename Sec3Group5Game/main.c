@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
     // Initialize all player data
     PLAYER* player = initPlayer();
     if (player == NULL) {
-        if (map != NULL) free(map);
+        free(map);
         return 1;
     }
 
@@ -43,16 +43,16 @@ int main(int argc, char* argv[]) {
             LOOTPOOL* lootpool = readLootPoolFromFile(argv[map->currentMap + 3]);
             if (enemies == NULL || lootpool == NULL) {
                 perror("Couldn't correctly read files...\n");
-                if (enemies != NULL) free(enemies);
-                if (lootpool != NULL) free(lootpool);
+                free(enemies);
+                free(lootpool);
                 break;
             }
 
             // Enters new area
             returnedValues = enterArea(map, player, lootpool);
             if (returnedValues == EXITCODE || returnedValues == ERRORCODE) {
-                if (enemies != NULL) free(enemies);
-                if (lootpool != NULL) free(lootpool);
+                free(enemies);
+                free(lootpool);
                 break;
             }
 
@@ -65,12 +65,20 @@ int main(int argc, char* argv[]) {
                     break;
 
                 // The fight menu for an encounter
-                returnedValues = fightMenu(player, enemies);
+                returnedValues = fightMenu(map, player, enemies);
                 totalFights++;
             }
 
-            if (enemies != NULL) free(enemies);
-            if (lootpool != NULL) free(lootpool);
+            // Lets player move to next map if they are still alive
+            map->currentMap++;
+
+            // Beat game
+            if (map->currentMap == 4) {
+                enterArea(map, player, lootpool);
+            }
+
+            free(enemies);
+            free(lootpool);
         }
     } while (userInput != EXITCODE && returnedValues != EXITCODE && returnedValues != ERRORCODE && map->currentMap != WIN);
 
@@ -90,7 +98,8 @@ int main(int argc, char* argv[]) {
         printf("Thank you for playing!\n");
     }
 
-    if (player != NULL) { free(player->playerName); free(player); }
+    free(player->playerName);
+    free(player);
     destroyMap(map);
 
     return 0;
