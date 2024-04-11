@@ -2,18 +2,4 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-*.vsidx
-*.db
-*.ipch
-*.obj
-*.recipe
-*.ilk
-*.log
-*.tlog
-*.idb
-*.pdb
 *.exe
-.vs/Sec3Group5Game/v17/.suo
-*.vcxproj
-*.filters
-/.vs/Sec3Group5Game/v17/Browse.VC.opendb

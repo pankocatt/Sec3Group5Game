@@ -1,0 +1,4 @@
+﻿  main.c
+C:\Users\f1am3\OneDrive\Desktop\Documents\GitHub\Sec3Group5Game\Sec3Group5Game\main.c(68,57): warning C4133: 'function': incompatible types - from 'ENEMYLIST *' to 'ENEMY *'
+C:\Users\f1am3\OneDrive\Desktop\Documents\GitHub\Sec3Group5Game\Sec3Group5Game\main.c(42,24): warning C4133: 'initializing': incompatible types - from 'ENEMY *' to 'ENEMYLIST *'
+  Sec3Group5Game.vcxproj -> C:\Users\f1am3\OneDrive\Desktop\Documents\GitHub\Sec3Group5Game\x64\Debug\Sec3Group5Game.exe
