@@ -10,7 +10,6 @@ MAP* initMap() {
 		return NULL;
 	}
 	map->currentMap = 1;
-	map->previousMap = 0;
 	map->totalFights = 5;
 
 	return map;
@@ -46,8 +45,6 @@ int getIntInput(int min, int max) {
 int enterArea(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 	printf("\n\n\n\n\n");
 	// Early exit if map is already selected or player wants to leave
-	if (map->currentMap == map->previousMap || map->currentMap == EXITCODE)
-		return;
 
 	switch (map->currentMap) {
 	// This is the starting case, allows the player to get into the game
@@ -102,16 +99,15 @@ int enterArea(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 		
 		// Winning the game
 	case 4:
-		map->currentMap == WIN;
-		return WIN;
+		map->currentMap = WIN;
+		return EXITCODE;
 	default:
 		perror("Couldn't load area...\n");
 		return ERRORCODE;
 	}
 
-	// Sets this as the previous map so it only says text once
-	map->previousMap = map->currentMap;
-	map->currentMap++;
+	printf("%s finds some health potions!\n", player->playerName);
+	player->healthPots += 2;
 	return GOODCODE;
 }
 
@@ -152,7 +148,7 @@ short choosePath(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 			printf("It's a %s with %d defense!\n", item.loot.armour.name, item.loot.armour.def);
 			break;
 		case HEALTHPOT_TYPE:
-			printf("It's a health potion that heals %d hp!\n", HEALTHPOTHEALING);
+			printf("It's a health potion!\n");
 			break;
 		default:
 			item.lootType = SWORD_TYPE;
@@ -207,7 +203,7 @@ short choosePath(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 }
 
 // Shows the fighting GUI(not a gui)
-short fightMenu(PLAYER* player, ENEMY* enemies) {
+short fightMenu(MAP* map, PLAYER* player, ENEMY* enemies) {
 	SLEEP;
 	printf("\n\n\n\n\n");
 	printf("%s encounters an enemy!\n", player->playerName);
@@ -266,11 +262,11 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 
 				  // Using health potion
 			case 3:
-				if (useHealthPot(player) == 1)
-					printf("%s recovered %d health and now has %d health!\n", player->playerName, HEALTHPOTHEALING, player->health);
+				if (useHealthPot(player, map->currentMap) == 1)
+					printf("%s recovered %d health and now has %d health!\n", player->playerName, (int)(HEALTHPOTHEALING * (1 + ((double)(map->currentMap - 1) / 2.0))), player->health);
 				else {
 					printf("%s has no health pots to use...\n", player->playerName);
-					userDidSomethingProductive = -1;
+					userDidSomethingProductive = ERRORCODE;
 				}
 				break;
 
@@ -278,7 +274,7 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 			case 4:
 				printf("%s has %d health, %d damage, %d critical hit chance, %d defence, and %d health potions remaining.\n", 
 				player->playerName, player->health, player->damage, player->critChance, player->defence, player->healthPots);
-				userDidSomethingProductive = -1;
+				userDidSomethingProductive = ERRORCODE;
 				break;
 
 				// User defends, also default case
@@ -289,7 +285,7 @@ short fightMenu(PLAYER* player, ENEMY* enemies) {
 				player->defence <<= 1;
 				break;
 			}
-		} while (userDidSomethingProductive == -1);
+		} while (userDidSomethingProductive == ERRORCODE);
 
 		// Exit loop if enemy died
 		if (enemy->health <= 0)
