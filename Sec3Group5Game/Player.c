@@ -77,6 +77,7 @@ int playerDealDmg(PLAYER* player)
 	while (critChance > 0) {
 		// If crit chance is higher than 100, add crit damage
 		if (critChance >= 100) {
+			printf("Critical hit!\n");
 			damageShift <<= 1;
 			critChance -= 100;
 			continue;
@@ -91,5 +92,5 @@ int playerDealDmg(PLAYER* player)
 		}
 		critChance -= 100;
 	}
-	return player->damage;
+	return damageShift;
 }
