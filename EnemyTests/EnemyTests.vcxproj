@@ -169,6 +169,9 @@
     <ClInclude Include="..\Sec3Group5Game\Enemy.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Sec3Group5Game\EnemyAreaOne.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
