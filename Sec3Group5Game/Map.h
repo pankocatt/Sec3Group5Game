@@ -5,9 +5,9 @@
 #include "Loot.h"
 
 typedef struct map {
-	short currentMap;
+	int currentMap;
 
-	short totalFights;
+	int totalFights;
 } MAP;
 
 // Map related items
@@ -24,12 +24,12 @@ int getIntInput(int, int);
 int enterArea(MAP*, PLAYER*, LOOTPOOL*);
 
 // Choose left or right path, adds interactivity but changes nothing
-short choosePath(MAP*, PLAYER*, LOOTPOOL* lootpool);
+int choosePath(MAP*, PLAYER*, LOOTPOOL* lootpool);
 
 
 // Fighting options
 // Main fight menu
-short fightMenu(MAP*, PLAYER*, ENEMY*);
+int fightMenu(MAP*, PLAYER*, ENEMY*);
 
 // Misc.
 // Free Map Memory

@@ -1,2 +1,3 @@
 ﻿  LootTests.cpp
-C:\Users\betve\source\repos\Sec3Group5Game\LootTests\LootTests.cpp(89,1): error C4700: uninitialized local variable 's1' used
+     Creating library C:\Users\betve\source\repos\Sec3Group5Game\x64\Debug\LootTests.lib and object C:\Users\betve\source\repos\Sec3Group5Game\x64\Debug\LootTests.exp
+  LootTests.vcxproj -> C:\Users\betve\source\repos\Sec3Group5Game\x64\Debug\LootTests.dll

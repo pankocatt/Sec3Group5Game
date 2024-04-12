@@ -1,13 +1,11 @@
-﻿  PlayerTests.cpp
-C:\Users\betve\source\repos\Sec3Group5Game\PlayerTests\PlayerTests.cpp(19,14): error C2660: 'CreateSword': function does not take 2 arguments
-  C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Loot.h(41,7):
-  see declaration of 'CreateSword'
-  C:\Users\betve\source\repos\Sec3Group5Game\PlayerTests\PlayerTests.cpp(19,14):
-  while trying to match the argument list '(int, int)'
-  
-C:\Users\betve\source\repos\Sec3Group5Game\PlayerTests\PlayerTests.cpp(26,15): error C2660: 'CreateArmour': function does not take 1 arguments
-  C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Loot.h(44,8):
-  see declaration of 'CreateArmour'
-  C:\Users\betve\source\repos\Sec3Group5Game\PlayerTests\PlayerTests.cpp(26,15):
-  while trying to match the argument list '(int)'
-  
+﻿  pch.cpp
+  Loot.c
+  Player.c
+  Generating Code...
+C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Loot.c(155,33): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Loot.c(156,42): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Player.c(45,1): warning C4029: declared formal parameter list different from definition
+C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Player.c(47,38): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+  PlayerTests.cpp
+     Creating library C:\Users\betve\source\repos\Sec3Group5Game\x64\Debug\PlayerTests.lib and object C:\Users\betve\source\repos\Sec3Group5Game\x64\Debug\PlayerTests.exp
+  PlayerTests.vcxproj -> C:\Users\betve\source\repos\Sec3Group5Game\x64\Debug\PlayerTests.dll

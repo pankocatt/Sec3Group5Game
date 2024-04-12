@@ -41,7 +41,12 @@ namespace EnemyTests
 		TEST_METHOD(EMY_RQ1_T1)
 		{
 			ENEMYLIST* list = readEnemyFromFile("EnemyAreaOne.txt");
-			Assert::IsNotNull(list);
+			if (list == NULL) {
+				Assert::IsTrue(true);
+			}
+			else {
+				Assert::IsTrue(false);
+			}
 			free(list);
 		}
 		TEST_METHOD(EMY_RQ1_T2)

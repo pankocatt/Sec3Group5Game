@@ -176,6 +176,14 @@
     <ClInclude Include="..\Sec3Group5Game\Player.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Sec3Group5Game\DungeonLoot.txt" />
+    <Text Include="..\Sec3Group5Game\EnemyAreaOne.txt" />
+    <Text Include="..\Sec3Group5Game\EnemyAreaThree.txt" />
+    <Text Include="..\Sec3Group5Game\EnemyAreaTwo.txt" />
+    <Text Include="..\Sec3Group5Game\JungleLoot.txt" />
+    <Text Include="..\Sec3Group5Game\LavaCaveLoot.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

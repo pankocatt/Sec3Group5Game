@@ -16,14 +16,14 @@ namespace PlayerTests
 		TEST_METHOD(PLR_RQ1_T1)
 		{
 			PLAYER* p = initPlayer();
-			SWORD s = CreateSword(10, 5);
+			SWORD s = CreateSword(10, 5, "A pencil");
 			equipWeapon(s, p);
 			Assert::AreEqual(p->damage, 10);
 		}
 		TEST_METHOD(PLR_RQ1_T2)
 		{
 			PLAYER* p = initPlayer();
-			ARMOUR a = CreateArmour(100);
+			ARMOUR a = CreateArmour(100, "paper armor");
 			equipArmor(a, p);
 			Assert::AreEqual(p->defence, 102);
 		}

@@ -18,21 +18,21 @@ namespace LootTests
 			// Regular sword creation test
 			int dmg = 15;
 			int crit = 10;
-			SWORD s = CreateSword(dmg, crit, NULL);
+			SWORD s = CreateSword(dmg, crit, "");
 			Assert::AreEqual(s.dmg, dmg);
 		}
 		TEST_METHOD(ITM_CRT_002)
 		{
 			// Regular armour creation test
 			int def = 15;
-			ARMOUR a = CreateArmour(def, NULL);
+			ARMOUR a = CreateArmour(def, "");
 			Assert::AreEqual(a.def, def);
 		}
 		TEST_METHOD(ITM_CRT_003)
 		{
 			// Regular healthpot creation test
 			int hp = 15;
-			HEALTHPOT h = CreateHealthPot(hp, NULL);
+			HEALTHPOT h = CreateHealthPot(hp, "");
 			Assert::AreEqual(h.health, hp);
 		}
 		TEST_METHOD(ITM_CRT_004)
@@ -84,10 +84,32 @@ namespace LootTests
 		TEST_METHOD(ITM_CPY_001)
 		{
 			// Copying a sword to another sword
-			SWORD* s1;
+			SWORD* s1 = (SWORD*)malloc(sizeof(SWORD));
 			SWORD s2 = CreateSword(15, 10, "Dagger");
+			bool result = CopySword(s1, s2);
+			Assert::AreEqual(result, true);
 			Assert::AreEqual(s1->dmg, s2.dmg);
-			Assert::AreEqual(s1->crit, s2.crit);
+			free(s1);
+		}
+		TEST_METHOD(ITM_CPY_002)
+		{
+			// Copying an armour to another armour
+			ARMOUR* a1 = (ARMOUR*)malloc(sizeof(ARMOUR));
+			ARMOUR a2 = CreateArmour(15, "Hat");
+			bool result = CopyArmour(a1, a2);
+			Assert::AreEqual(result, true);
+			Assert::AreEqual(a1->def, a2.def);
+			free(a1);
+		}
+		TEST_METHOD(ITM_CPY_003)
+		{
+			// Copying a healthpot to another healthpot
+			HEALTHPOT* a1 = (HEALTHPOT*)malloc(sizeof(HEALTHPOT));
+			HEALTHPOT a2 = CreateHealthPot(15, "Potion");
+			bool result = CopyHealthPot(a1, a2);
+			Assert::AreEqual(result, true);
+			Assert::AreEqual(a1->health, a2.health);
+			free(a1);
 		}
 	};
 }

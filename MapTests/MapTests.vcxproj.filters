@@ -54,4 +54,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Sec3Group5Game\DungeonLoot.txt" />
+    <Text Include="..\Sec3Group5Game\EnemyAreaOne.txt" />
+    <Text Include="..\Sec3Group5Game\EnemyAreaThree.txt" />
+    <Text Include="..\Sec3Group5Game\EnemyAreaTwo.txt" />
+    <Text Include="..\Sec3Group5Game\LavaCaveLoot.txt" />
+    <Text Include="..\Sec3Group5Game\JungleLoot.txt" />
+  </ItemGroup>
 </Project>
