@@ -1,1 +1,14 @@
-﻿
+﻿  Enemy.c
+C:\Users\f1am3\OneDrive\Desktop\Documents\GitHub\Sec3Group5Game\Sec3Group5Game\Enemy.c(16,24): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  Loot.c
+C:\Users\f1am3\OneDrive\Desktop\Documents\GitHub\Sec3Group5Game\Sec3Group5Game\Loot.c(155,33): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\f1am3\OneDrive\Desktop\Documents\GitHub\Sec3Group5Game\Sec3Group5Game\Loot.c(156,42): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+  main.c
+C:\Users\f1am3\OneDrive\Desktop\Documents\GitHub\Sec3Group5Game\Sec3Group5Game\main.c(68,57): warning C4133: 'function': incompatible types - from 'ENEMYLIST *' to 'ENEMY *'
+  Map.c
+C:\Users\f1am3\OneDrive\Desktop\Documents\GitHub\Sec3Group5Game\Sec3Group5Game\Map.c(266,33): warning C4020: 'useHealthPot': too many actual parameters
+  Player.c
+C:\Users\f1am3\OneDrive\Desktop\Documents\GitHub\Sec3Group5Game\Sec3Group5Game\Player.c(45,1): warning C4029: declared formal parameter list different from definition
+C:\Users\f1am3\OneDrive\Desktop\Documents\GitHub\Sec3Group5Game\Sec3Group5Game\Player.c(47,38): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  Sec3Group5Game.vcxproj -> C:\Users\f1am3\OneDrive\Desktop\Documents\GitHub\Sec3Group5Game\x64\Debug\Sec3Group5Game.exe
