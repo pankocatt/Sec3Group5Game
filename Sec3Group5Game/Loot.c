@@ -1,10 +1,11 @@
 #include "Loot.h"
 #include <time.h>
 
-SWORD CreateSword(int dmg, int crit) {
+SWORD CreateSword(int dmg, int crit, char* name) {
 	SWORD s;
 	s.dmg = dmg;
 	s.crit = crit;
+	strcpy(s.name, name);
 	return s;
 }
 
@@ -15,13 +16,15 @@ bool CopySword(SWORD* dest, SWORD src) {
 
 	dest->dmg = src.dmg;
 	dest->crit = src.crit;
+	strcpy(dest->name, src.name);
 
 	return true;
 }
 
-ARMOUR CreateArmour(int def) {
+ARMOUR CreateArmour(int def, char* name) {
 	ARMOUR a;
 	a.def = def;
+	strcpy(a.name, name);
 	return a;
 }
 
@@ -31,13 +34,15 @@ bool CopyArmour(ARMOUR* dest, ARMOUR src) {
 	}
 
 	dest->def = src.def;
+	strcpy(dest->name, src.name);
 
 	return true;
 }
 
-HEALTHPOT CreateHealthPot(int health) {
+HEALTHPOT CreateHealthPot(int health, char* name) {
 	HEALTHPOT h;
 	h.health = health;
+	strcpy(h.name, name);
 	return h;
 }
 
@@ -47,6 +52,7 @@ bool CopyHealthPot(HEALTHPOT* dest, HEALTHPOT src) {
 	}
 
 	dest->health = src.health;
+	strcpy(dest->name, src.name);
 
 	return true;
 }
@@ -120,6 +126,7 @@ LOOTPOOL* readLootPoolFromFile(char* fileName) {
 			fgets(itemName, MAXNAME, fp);
 			itemName[strlen(itemName) - 1] = '\0';
 			strncpy(item.loot.sword.name, itemName, MAXNAME);
+			item.loot.sword = CreateSword(damage, crit, itemName);
 		}
 		// Armour
 		else if (strncmp(lootType, "ARMOUR_TYPE\n", MAXNAME) == 0) {
@@ -138,6 +145,7 @@ LOOTPOOL* readLootPoolFromFile(char* fileName) {
 			fgets(itemName, MAXNAME, fp);
 			itemName[strlen(itemName) - 1] = '\0';
 			strncpy(item.loot.armour.name, itemName, MAXNAME);
+			item.loot.armour = CreateArmour(defence, itemName);
 		}
 		// Health potions
 		else if (strncmp(lootType, "HEALTHPOT_TYPE", MAXNAME)) {
@@ -145,6 +153,7 @@ LOOTPOOL* readLootPoolFromFile(char* fileName) {
 			fgets(itemName, MAXNAME, fp); // For newline
 			item.lootType = HEALTHPOT_TYPE;
 			item.loot.healthpot.health = HEALTHPOTHEALING;
+			item.loot.healthpot = CreateHealthPot(HEALTHPOTHEALING, itemName);
 		}
 		// Default
 		else {
