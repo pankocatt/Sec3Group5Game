@@ -1,1 +1,15 @@
-﻿  MapTests.vcxproj -> C:\Users\huntr\source\repos\Team Based (Team Based)\Pankocat\x64\Debug\MapTests.dll
+﻿  pch.cpp
+  Enemy.c
+C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Enemy.c(16,24): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  Loot.c
+C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Loot.c(155,33): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Loot.c(156,42): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+  Map.c
+C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Map.c(266,33): warning C4020: 'useHealthPot': too many actual parameters
+  Player.c
+C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Player.c(45,1): warning C4029: declared formal parameter list different from definition
+C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Player.c(47,38): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  MapTests.cpp
+     Creating library C:\Users\betve\source\repos\Sec3Group5Game\x64\Debug\MapTests.lib and object C:\Users\betve\source\repos\Sec3Group5Game\x64\Debug\MapTests.exp
+  MapTests.vcxproj -> C:\Users\betve\source\repos\Sec3Group5Game\x64\Debug\MapTests.dll

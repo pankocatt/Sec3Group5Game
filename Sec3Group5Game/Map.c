@@ -100,7 +100,7 @@ int enterArea(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 		// Winning the game
 	case 4:
 		map->currentMap = WIN;
-		return EXITCODE;
+		return WIN;
 	default:
 		perror("Couldn't load area...\n");
 		return ERRORCODE;
@@ -112,13 +112,13 @@ int enterArea(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 }
 
 // Choose left or right path, adds interactivity. Direction doesn't matter since its based on an arbitrary roll.
-short choosePath(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
+int choosePath(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 	printf("\n\n\n\n\n");
 	printf("%s comes to a fork in the path...\n", player->playerName);
 	printf("Which direction do they choose to go?\n");
 	printf("1. Left\n");
 	printf("2. Right\n");
-	short input = getIntInput(1, 2);
+	int input = getIntInput(1, 2);
 	if (input == EXITCODE)
 		return EXITCODE;
 
@@ -132,7 +132,7 @@ short choosePath(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 		printf("%s walks down the right path...\n", player->playerName);
 	}
 
-	short pathWithItem = rand() % 100 + 1;
+	int pathWithItem = rand() % 100 + 1;
 
 	// % chance of finding an item
 	if (pathWithItem <= 50) {
@@ -200,10 +200,11 @@ short choosePath(MAP* map, PLAYER* player, LOOTPOOL* lootpool) {
 			break;
 		}
 	}
+	return GOODCODE;
 }
 
 // Shows the fighting GUI(not a gui)
-short fightMenu(MAP* map, PLAYER* player, ENEMY* enemies) {
+int fightMenu(MAP* map, PLAYER* player, ENEMY* enemies) {
 	SLEEP;
 	printf("\n\n\n\n\n");
 	printf("%s encounters an enemy!\n", player->playerName);
@@ -214,14 +215,14 @@ short fightMenu(MAP* map, PLAYER* player, ENEMY* enemies) {
 	*enemy = enemies[rand() % TOTALENEMIES];
 
 	// Main loop for fighting
-	short enemyOption = 0;
-	short userinput;
+	int enemyOption = 0;
+	int userinput;
 	bool isEnemyCharged = false;
 	do {
 
 		////////////////////////////////////////////////////////////////////////////////////
 		// Determines players option
-		short userDidSomethingProductive;
+		int userDidSomethingProductive;
 		do {
 			printf("\n\n\n\n\n");
 			// Print out menu options
@@ -237,14 +238,14 @@ short fightMenu(MAP* map, PLAYER* player, ENEMY* enemies) {
 			switch (userinput) {
 				// User wants to leave
 			case EXITCODE:
-				if (enemy != NULL) free(enemy);
+				free(enemy);
 				return EXITCODE;
 				break;
 
 				// Attacking
 			case 1: { // Brackets for making MSVC stop complaining
 				// Checks if the enemy is defending
-				short keepOdd = player->damage % 2;
+				int keepOdd = player->damage % 2;
 				if (enemyOption == ENEMY_DEFEND)
 					player->damage >>= 1;
 
@@ -348,13 +349,14 @@ short fightMenu(MAP* map, PLAYER* player, ENEMY* enemies) {
 		printf("Their journey has come to an end...\n");
 		SLEEP;
 		printf("Long will %s be remembered...\n", player->playerName);
+		free(enemy);
 		return EXITCODE;
 	}
 
 	printf("%s has slain the %s!\n", player->playerName, enemy->enemyName);
 	SLEEP;
 
-	if (enemy != NULL) free(enemy);
+	free(enemy);
 	return 1;
 }
 

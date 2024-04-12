@@ -1,2 +1,6 @@
-﻿  EnemyTests.cpp
-  EnemyTests.vcxproj -> C:\Users\huntr\source\repos\Team Based (Team Based)\Pankocat\x64\Debug\EnemyTests.dll
+﻿  pch.cpp
+  Enemy.c
+C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Enemy.c(16,24): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  EnemyTests.cpp
+     Creating library C:\Users\betve\source\repos\Sec3Group5Game\x64\Debug\EnemyTests.lib and object C:\Users\betve\source\repos\Sec3Group5Game\x64\Debug\EnemyTests.exp
+  EnemyTests.vcxproj -> C:\Users\betve\source\repos\Sec3Group5Game\x64\Debug\EnemyTests.dll

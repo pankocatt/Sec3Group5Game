@@ -1,1 +1,11 @@
-﻿  PlayerTests.vcxproj -> C:\Users\huntr\source\repos\Team Based (Team Based)\Pankocat\x64\Debug\PlayerTests.dll
+﻿  pch.cpp
+  Loot.c
+  Player.c
+  Generating Code...
+C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Loot.c(155,33): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Loot.c(156,42): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Player.c(45,1): warning C4029: declared formal parameter list different from definition
+C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Player.c(47,38): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+  PlayerTests.cpp
+     Creating library C:\Users\betve\source\repos\Sec3Group5Game\x64\Debug\PlayerTests.lib and object C:\Users\betve\source\repos\Sec3Group5Game\x64\Debug\PlayerTests.exp
+  PlayerTests.vcxproj -> C:\Users\betve\source\repos\Sec3Group5Game\x64\Debug\PlayerTests.dll
