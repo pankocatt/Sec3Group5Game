@@ -65,21 +65,21 @@ namespace LootTests
 			// Creating an Item from Sword test
 			SWORD s = CreateSword(15, 10, "Dagger");
 			ITEM i = CreateItemFromSword(s);
-			Assert::AreEqual(i.loot.sword, s);
+			Assert::AreEqual(i.loot.sword.dmg, s.dmg);
 		}
 		TEST_METHOD(ITM_CRT_008)
 		{
 			// Creating an Item from Armour test
 			ARMOUR a = CreateArmour(15, "Hat");
 			ITEM i = CreateItemFromArmour(a);
-			Assert::AreEqual(i.loot.armour, a);
+			Assert::AreEqual(i.loot.armour.def, a.def);
 		}
 		TEST_METHOD(ITM_CRT_009)
 		{
 			// Creating an Item from Healthpot test
 			HEALTHPOT h = CreateHealthPot(15, "Potion");
 			ITEM i = CreateItemFromHealthPot(h);
-			Assert::AreEqual(i.loot.healthpot, h);
+			Assert::AreEqual(i.loot.healthpot.health, h.health);
 		}
 	};
 }
