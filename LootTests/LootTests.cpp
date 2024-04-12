@@ -48,7 +48,7 @@ namespace LootTests
 		{
 			// Named armour creation test
 			int def = 15;
-			char* name = "Dagger";
+			char* name = "Hat";
 			ARMOUR a = CreateArmour(def, name);
 			Assert::AreEqual(a.name, name);
 		}
@@ -56,7 +56,7 @@ namespace LootTests
 		{
 			// Named healthpot creation test
 			int hp = 15;
-			char* name = "Dagger";
+			char* name = "Potion";
 			HEALTHPOT h = CreateHealthPot(hp, name);
 			Assert::AreEqual(h.name, name);
 		}
@@ -80,6 +80,14 @@ namespace LootTests
 			HEALTHPOT h = CreateHealthPot(15, "Potion");
 			ITEM i = CreateItemFromHealthPot(h);
 			Assert::AreEqual(i.loot.healthpot.health, h.health);
+		}
+		TEST_METHOD(ITM_CPY_001)
+		{
+			// Copying a sword to another sword
+			SWORD* s1;
+			SWORD s2 = CreateSword(15, 10, "Dagger");
+			Assert::AreEqual(s1->dmg, s2.dmg);
+			Assert::AreEqual(s1->crit, s2.crit);
 		}
 	};
 }
