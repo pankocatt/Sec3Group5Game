@@ -37,7 +37,7 @@ int main(int argc, char* argv[]) {
         mainMenu();
         userInput = getIntInput(1, 1); // Have user enter main menu option
 
-        while (userInput != EXITCODE && returnedValues != EXITCODE) {
+        while (userInput != EXITCODE && returnedValues != EXITCODE && returnedValues != WIN && map->currentMap != WIN) {
             // Enters next area
             ENEMYLIST* enemies = readEnemyFromFile(argv[map->currentMap]);
             LOOTPOOL* lootpool = readLootPoolFromFile(argv[map->currentMap + 3]);
@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
                 break;
             }
 
-            // This is the loop for getting new items and fighting
+                // This is the loop for getting new items and fighting
             int totalFights = 0;
             while (returnedValues != EXITCODE && totalFights < map->totalFights) {
                 // Lets player select a path for a chance at a new item
@@ -68,35 +68,38 @@ int main(int argc, char* argv[]) {
                 returnedValues = fightMenu(map, player, enemies);
                 totalFights++;
             }
+            
 
             // Lets player move to next map if they are still alive
             map->currentMap++;
 
             // Beat game
-            if (map->currentMap == 4) {
-                enterArea(map, player, lootpool);
-            }
+            if (map->currentMap == 4)
+                returnedValues = enterArea(map, player, lootpool);
 
             free(enemies);
             free(lootpool);
         }
-    } while (userInput != EXITCODE && returnedValues != EXITCODE && returnedValues != ERRORCODE && map->currentMap != WIN);
+    } while (userInput != EXITCODE && returnedValues != EXITCODE && returnedValues != ERRORCODE && returnedValues != WIN && map->currentMap != WIN);
 
     // The win
+
     if (map->currentMap == WIN) {
         printf("%s escapes from the fiery cave...\n", player->playerName);
-        Sleep(2000);
+        SLEEP;
         printf("%s returns home.\n", player->playerName);
         Sleep(2000);
         printf("%s takes a well deserved rest...\n", player->playerName);
-        Sleep(2000);
+        SLEEP;
         printf("You win!\n");
         printf("Final Stats:\n");
         printf("%s had %d health, %d damage, %d critical hit chance, %d defence, and %d health potions remaining.\n",
         player->playerName, player->health, player->damage, player->critChance, player->defence, player->healthPots);
-        Sleep(2000);
-        printf("Thank you for playing!\n");
+        SLEEP;
+        
     }
+
+    printf("Thank you for playing!\n");
 
     free(player->playerName);
     free(player);

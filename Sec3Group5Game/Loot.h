@@ -38,13 +38,13 @@ typedef struct lootPool {
 	ITEM pool[MAXLOOT];
 } LOOTPOOL;
 
-SWORD CreateSword(int dmg, int crit);
+SWORD CreateSword(int dmg, int crit, char* name);
 bool CopySword(SWORD* dest, SWORD src);
 
-ARMOUR CreateArmour(int def);
+ARMOUR CreateArmour(int def, char* name);
 bool CopyArmour(ARMOUR* dest, ARMOUR src);
 
-HEALTHPOT CreateHealthPot(int health);
+HEALTHPOT CreateHealthPot(int health, char* name);
 bool CopyHealthPot(HEALTHPOT* dest, HEALTHPOT src);
 
 ITEM CreateItemFromSword(SWORD s);

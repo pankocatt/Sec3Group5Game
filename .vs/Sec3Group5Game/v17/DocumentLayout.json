@@ -7,8 +7,8 @@
       "RelativeMoniker": "D:0:0:{E0264BF9-68AC-41BA-ABC4-0A655EEE25C9}|LootTests\\LootTests.vcxproj|solutionrelative:LootTests\\LootTests.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E0264BF9-68AC-41BA-ABC4-0A655EEE25C9}|LootTests\\LootTests.vcxproj|C:\\Users\\betve\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Loot.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E0264BF9-68AC-41BA-ABC4-0A655EEE25C9}|LootTests\\LootTests.vcxproj|solutionrelative:Sec3Group5Game\\Loot.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{7280A405-1243-4DF5-888B-BD626102B592}|MapTests\\MapTests.vcxproj|C:\\Users\\betve\\source\\repos\\Sec3Group5Game\\MapTests\\MapTests.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7280A405-1243-4DF5-888B-BD626102B592}|MapTests\\MapTests.vcxproj|solutionrelative:MapTests\\MapTests.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BE350794-7364-4378-B7F0-1EB61D3169AF}|PlayerTests\\PlayerTests.vcxproj|C:\\Users\\betve\\source\\repos\\Sec3Group5Game\\PlayerTests\\PlayerTests.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -47,6 +47,10 @@
       "RelativeMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|solutionrelative:Sec3Group5Game\\Player.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|C:\\Users\\betve\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Loot.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|solutionrelative:Sec3Group5Game\\Loot.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|C:\\Users\\betve\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\EnemyAreaTwo.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{01BC512E-35EA-438B-AC2F-9FC48598177B}|Sec3Group5Game\\Sec3Group5Game.vcxproj|solutionrelative:Sec3Group5Game\\EnemyAreaTwo.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
@@ -70,7 +74,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 17,
+          "SelectedChildIndex": 18,
           "Children": [
             {
               "$type": "Bookmark",
@@ -142,13 +146,25 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MapTests.cpp",
+              "DocumentMoniker": "C:\\Users\\betve\\source\\repos\\Sec3Group5Game\\MapTests\\MapTests.cpp",
+              "RelativeDocumentMoniker": "MapTests\\MapTests.cpp",
+              "ToolTip": "C:\\Users\\betve\\source\\repos\\Sec3Group5Game\\MapTests\\MapTests.cpp",
+              "RelativeToolTip": "MapTests\\MapTests.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-12T04:45:29.981Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "LootTests.cpp",
               "DocumentMoniker": "C:\\Users\\betve\\source\\repos\\Sec3Group5Game\\LootTests\\LootTests.cpp",
               "RelativeDocumentMoniker": "LootTests\\LootTests.cpp",
               "ToolTip": "C:\\Users\\betve\\source\\repos\\Sec3Group5Game\\LootTests\\LootTests.cpp",
               "RelativeToolTip": "LootTests\\LootTests.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACsAAAAkAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABUAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-12T03:25:52.182Z",
               "EditorCaption": ""
@@ -161,7 +177,7 @@
               "RelativeDocumentMoniker": "PlayerTests\\PlayerTests.cpp",
               "ToolTip": "C:\\Users\\betve\\source\\repos\\Sec3Group5Game\\PlayerTests\\PlayerTests.cpp",
               "RelativeToolTip": "PlayerTests\\PlayerTests.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAUAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABoAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-12T00:13:19.66Z"
             },
@@ -209,7 +225,7 @@
               "RelativeDocumentMoniker": "Sec3Group5Game\\Loot.h",
               "ToolTip": "C:\\Users\\betve\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Loot.h",
               "RelativeToolTip": "Sec3Group5Game\\Loot.h",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAC4AAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-03-21T20:11:17.862Z"
             },
@@ -263,20 +279,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
               "Title": "Loot.c",
               "DocumentMoniker": "C:\\Users\\betve\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Loot.c",
               "RelativeDocumentMoniker": "Sec3Group5Game\\Loot.c",
               "ToolTip": "C:\\Users\\betve\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Loot.c",
               "RelativeToolTip": "Sec3Group5Game\\Loot.c",
-              "ViewState": "AQIAAGkAAAAAAAAAAAAAAK8AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-04-03T19:47:18.668Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T19:47:18.668Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "EnemyAreaTwo.txt",
               "DocumentMoniker": "C:\\Users\\betve\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\EnemyAreaTwo.txt",
               "RelativeDocumentMoniker": "Sec3Group5Game\\EnemyAreaTwo.txt",
@@ -288,7 +303,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "main.h",
               "DocumentMoniker": "C:\\Users\\betve\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\main.h",
               "RelativeDocumentMoniker": "Sec3Group5Game\\main.h",
@@ -300,7 +315,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "constants.h",
               "DocumentMoniker": "C:\\Users\\betve\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\constants.h",
               "RelativeDocumentMoniker": "Sec3Group5Game\\constants.h",
@@ -312,7 +327,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Player.h",
               "DocumentMoniker": "C:\\Users\\betve\\source\\repos\\Sec3Group5Game\\Sec3Group5Game\\Player.h",
               "RelativeDocumentMoniker": "Sec3Group5Game\\Player.h",
