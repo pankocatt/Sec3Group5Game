@@ -1,16 +1,16 @@
 ﻿  Enemy.c
   Loot.c
-  main.c
-C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Enemy.c(16,24): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Loot.c(155,33): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Loot.c(156,42): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
-C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\main.c(68,57): warning C4133: 'function': incompatible types - from 'ENEMYLIST *' to 'ENEMY *'
   Map.c
-C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Map.c(102,21): warning C4305: '=': truncation from 'int' to 'short'
-C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Map.c(265,33): warning C4020: 'useHealthPot': too many actual parameters
+C:\Users\huntr\source\repos\Team Based (Team Based)\Pankocat\Sec3Group5Game\Enemy.c(16,24): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\huntr\source\repos\Team Based (Team Based)\Pankocat\Sec3Group5Game\Loot.c(155,33): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\huntr\source\repos\Team Based (Team Based)\Pankocat\Sec3Group5Game\Loot.c(156,42): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+C:\Users\huntr\source\repos\Team Based (Team Based)\Pankocat\Sec3Group5Game\Map.c(102,21): warning C4305: '=': truncation from 'int' to 'short'
+C:\Users\huntr\source\repos\Team Based (Team Based)\Pankocat\Sec3Group5Game\Map.c(265,33): warning C4020: 'useHealthPot': too many actual parameters
   Player.c
-C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Player.c(45,1): warning C4029: declared formal parameter list different from definition
-C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Player.c(47,38): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\huntr\source\repos\Team Based (Team Based)\Pankocat\Sec3Group5Game\Player.c(45,1): warning C4029: declared formal parameter list different from definition
+C:\Users\huntr\source\repos\Team Based (Team Based)\Pankocat\Sec3Group5Game\Player.c(47,38): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+  main.c
+C:\Users\huntr\source\repos\Team Based (Team Based)\Pankocat\Sec3Group5Game\main.c(68,57): warning C4133: 'function': incompatible types - from 'ENEMYLIST *' to 'ENEMY *'
   Generating Code...
-C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Map.c(203,1): warning C4715: 'choosePath': not all control paths return a value
-  Sec3Group5Game.vcxproj -> C:\Users\betve\source\repos\Sec3Group5Game\x64\Debug\Sec3Group5Game.exe
+C:\Users\huntr\source\repos\Team Based (Team Based)\Pankocat\Sec3Group5Game\Map.c(203,1): warning C4715: 'choosePath': not all control paths return a value
+  Sec3Group5Game.vcxproj -> C:\Users\huntr\source\repos\Team Based (Team Based)\Pankocat\x64\Debug\Sec3Group5Game.exe

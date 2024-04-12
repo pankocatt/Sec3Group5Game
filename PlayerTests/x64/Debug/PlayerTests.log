@@ -1,13 +1,1 @@
-﻿  PlayerTests.cpp
-C:\Users\betve\source\repos\Sec3Group5Game\PlayerTests\PlayerTests.cpp(19,14): error C2660: 'CreateSword': function does not take 2 arguments
-  C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Loot.h(41,7):
-  see declaration of 'CreateSword'
-  C:\Users\betve\source\repos\Sec3Group5Game\PlayerTests\PlayerTests.cpp(19,14):
-  while trying to match the argument list '(int, int)'
-  
-C:\Users\betve\source\repos\Sec3Group5Game\PlayerTests\PlayerTests.cpp(26,15): error C2660: 'CreateArmour': function does not take 1 arguments
-  C:\Users\betve\source\repos\Sec3Group5Game\Sec3Group5Game\Loot.h(44,8):
-  see declaration of 'CreateArmour'
-  C:\Users\betve\source\repos\Sec3Group5Game\PlayerTests\PlayerTests.cpp(26,15):
-  while trying to match the argument list '(int)'
-  
+﻿  PlayerTests.vcxproj -> C:\Users\huntr\source\repos\Team Based (Team Based)\Pankocat\x64\Debug\PlayerTests.dll
