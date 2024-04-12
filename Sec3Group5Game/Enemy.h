@@ -14,7 +14,7 @@ typedef struct enemyList {
 
 int enemyTakeDmg(int dmg, ENEMY *enemy);
 
-ENEMY* readEnemyFromFile(char* fileName);
+ENEMYLIST* readEnemyFromFile(char* fileName);
 
 ENEMY makeEnemy(int health, int damage, char* enemyName);
 

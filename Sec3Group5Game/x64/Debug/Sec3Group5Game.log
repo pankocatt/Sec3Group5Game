@@ -1,4 +1,3 @@
-﻿  main.c
-C:\Users\f1am3\OneDrive\Desktop\Documents\GitHub\Sec3Group5Game\Sec3Group5Game\main.c(68,57): warning C4133: 'function': incompatible types - from 'ENEMYLIST *' to 'ENEMY *'
-C:\Users\f1am3\OneDrive\Desktop\Documents\GitHub\Sec3Group5Game\Sec3Group5Game\main.c(42,24): warning C4133: 'initializing': incompatible types - from 'ENEMY *' to 'ENEMYLIST *'
-  Sec3Group5Game.vcxproj -> C:\Users\f1am3\OneDrive\Desktop\Documents\GitHub\Sec3Group5Game\x64\Debug\Sec3Group5Game.exe
+﻿  Enemy.c
+C:\Users\huntr\source\repos\Team Based (Team Based)\Pankocat\Sec3Group5Game\Enemy.c(16,24): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  Sec3Group5Game.vcxproj -> C:\Users\huntr\source\repos\Team Based (Team Based)\Pankocat\x64\Debug\Sec3Group5Game.exe

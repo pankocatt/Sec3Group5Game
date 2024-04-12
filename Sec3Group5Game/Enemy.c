@@ -23,7 +23,7 @@ ENEMYLIST* makeEnemyList(int maxEnemies)
 	ENEMYLIST* enemies = (ENEMYLIST*)malloc(maxEnemies * sizeof(ENEMY));
 	if (enemies == NULL) {
 		printf("Could not allocate space...\n");
-		exit(1);
+		return NULL;
 	}
 	return enemies;
 }
@@ -38,11 +38,11 @@ ENEMY makeEnemy(int health, int damage, char* enemyName)
 	return enemy;
 }
 
-ENEMY* readEnemyFromFile(char* fileName) {
+ENEMYLIST* readEnemyFromFile(char* fileName) {
 	FILE* fp = fopen(fileName, "r");
 	if (fp == NULL) {
 		fprintf(stderr, "Could not open file...\n");
-		exit(EXIT_FAILURE);
+		return NULL;
 	}
 	
 	ENEMYLIST* enemies = makeEnemyList(TOTALENEMIES);
